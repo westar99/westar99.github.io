@@ -71,6 +71,106 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-day0623" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/06/23/day0623/" class="article-date">
+  <time class="dt-published" datetime="2022-06-23T01:00:00.000Z" itemprop="datePublished">2022-06-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/06/23/day0623/">Untitled</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="복습"><a href="#복습" class="headerlink" title="복습"></a>복습</h2><p>-iris 데이터, sepal.length, sepal. width활용해서 종별로 산점도를 그리세요<br>-제목과 x축 y축 제목을 변경하세요.<br>  +x축 길이 , y축 너비</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">library<span class="punctuation">(</span>ggplot2<span class="punctuation">)</span></span><br><span class="line">str<span class="punctuation">(</span>iris<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">## &#x27;data.frame&#x27;:	150 obs. of  5 variables:</span><br><span class="line">##  $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...</span><br><span class="line">##  $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...</span><br><span class="line">##  $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...</span><br><span class="line">##  $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...</span><br><span class="line">##  $ Species     : Factor w/ 3 levels &quot;setosa&quot;,&quot;versicolor&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">ggplot<span class="punctuation">(</span>iris<span class="punctuation">,</span> aes<span class="punctuation">(</span> x <span class="operator">=</span> Sepal.Length<span class="punctuation">,</span></span><br><span class="line">                  y <span class="operator">=</span> Sepal.Width<span class="punctuation">,</span></span><br><span class="line">                  colour <span class="operator">=</span>Species<span class="punctuation">)</span><span class="punctuation">)</span><span class="operator">+</span></span><br><span class="line">  geom_point<span class="punctuation">(</span><span class="punctuation">)</span><span class="operator">+</span></span><br><span class="line">   labs<span class="punctuation">(</span></span><br><span class="line">     title <span class="operator">=</span><span class="string">&quot; 제목&quot;</span><span class="punctuation">,</span></span><br><span class="line">         x <span class="operator">=</span> <span class="string">&quot;길이&quot;</span><span class="punctuation">,</span> </span><br><span class="line">         y <span class="operator">=</span> <span class="string">&quot;너비&quot;</span><span class="punctuation">,</span></span><br><span class="line">   <span class="punctuation">)</span><span class="operator">+</span></span><br><span class="line">  scale_color_manual<span class="punctuation">(</span></span><br><span class="line">    labels <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;setosa&quot;</span><span class="punctuation">,</span><span class="string">&quot;versicolor&quot;</span><span class="punctuation">,</span><span class="string">&quot;virginica&quot;</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">    values <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;pink&quot;</span><span class="punctuation">,</span><span class="string">&quot;orange&quot;</span><span class="punctuation">,</span><span class="string">&quot;blue&quot;</span><span class="punctuation">)</span></span><br><span class="line">  <span class="punctuation">)</span><span class="operator">+</span></span><br><span class="line">  theme_classic<span class="punctuation">(</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/rmd_0623/unnamed-chunk-1-1.png"><!-- --><br>– 색깔을 부꿀 수 있는 명령어 scale_color_manual<br>– 테마를 바꾸는 옵션 theme_classic()-&gt; 농도가 각각 다르게 함.<br>– ggstatsplot라는 것도 통계그림 그리기에 좋음</p>
+<h2 id="통계"><a href="#통계" class="headerlink" title="통계"></a>통계</h2><ul>
+<li><p>기술통계 :평균, 최촛값, 최댓값, 중간값</p>
+</li>
+<li><p>추론통계 : 변수간의 관계를 파악&#x2F;새로운 사실을 발견(추정)<br>+평균차이 검정<br> -수치데이터<br> -가설검정 : 평균의 차이를 검정<br> -남자의 평균 키와 여자의 평균 키는 차이가 있을 것이다.<br>  (남자 여자라는 그룹을 평균을 기준으로 비교 )</p>
+<p>+교차분석(빈도분석)<br> -범주 데이터<br> -가설검정 : 각 범주별 빈도를 활용하여 관계성을 검정</p>
+<p>+상관관계 분석<br> -수치 데이터<br> -변수사이의 연관성을 수치로 표현</p>
+<p>+단순 회귀분석<br> -y(종속변수)&#x3D; a(기울기&#x3D;회기계수)x(독립변수)+b(절편&#x3D;상수항:의미없음)<br> -가설검정<br>-&gt;기온x(독립변수)이 판매량y(종속변수)에 긍정적(+)a영향을 준다.<br>+다중 회귀분석<br> -y&#x3D;a1x1+a2x2+a3x3….+b</p>
+</li>
+</ul>
+<h2 id="통계-검정"><a href="#통계-검정" class="headerlink" title="통계 검정"></a>통계 검정</h2><ul>
+<li>P176</li>
+</ul>
+<h3 id="가설"><a href="#가설" class="headerlink" title="가설"></a>가설</h3><p> -hypothesis<br> –&gt;공부방법: 선행연구, 해당분석방법의 가설 설정 예시를 보고 연습<br> -연구:내가 궁금한 것을 찾는 것<br>  ex)남자와 여자의 평균키가 차이가 있다.<br> -귀무가설:궁금한 것의 반대내용(ex.남여 평균키 차이가 없다.)<br> -대립가설:궁금한 사항이 여기로 옴(ex.남여 평균키 차이가 있다)</p>
+<p> -가설 검정에서 인정하는 유의 수준:5%,1%,0.1% 또는 10%<br> -오차 범위 내에 있으면 차이가 크지 않음. 오차 범위 밖에 있으면 결과가<br>  결정됨.(신뢰수준&lt;-&gt;유의수준)<br> -유의수준&gt;0.05가 넘으면 데이터의 의미가 없어진다.귀무가설 실패</p>
+<p>t.test<br>-어떻게 데이터를 입력하는지 확인<br>-p-value, 유의수준 0.05이상: 귀무가설(p&gt;0.05) 0.05이내: 대립가설(p&lt;0.05)</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mpg1<span class="operator">&lt;-</span>read.csv<span class="punctuation">(</span><span class="string">&quot;data/mpg1.csv&quot;</span><span class="punctuation">,</span>stringsAsFactors <span class="operator">=</span> <span class="built_in">F</span><span class="punctuation">)</span></span><br><span class="line">str<span class="punctuation">(</span>mpg1<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">## &#x27;data.frame&#x27;:	234 obs. of  5 variables:</span><br><span class="line">##  $ manufacturer: chr  &quot;audi&quot; &quot;audi&quot; &quot;audi&quot; &quot;audi&quot; ...</span><br><span class="line">##  $ trans       : chr  &quot;auto&quot; &quot;manual&quot; &quot;manual&quot; &quot;auto&quot; ...</span><br><span class="line">##  $ drv         : chr  &quot;f&quot; &quot;f&quot; &quot;f&quot; &quot;f&quot; ...</span><br><span class="line">##  $ cty         : int  18 21 20 21 16 18 18 18 16 20 ...</span><br><span class="line">##  $ hwy         : int  29 29 31 30 26 26 27 26 25 28 ...</span><br></pre></td></tr></table></figure>
+
+<p>-시각화<br> +여기서는 큰 차이를 알 수가 없다.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">library<span class="punctuation">(</span>ggplot2<span class="punctuation">)</span></span><br><span class="line">ggplot<span class="punctuation">(</span>mpg1<span class="punctuation">,</span> aes<span class="punctuation">(</span>x <span class="operator">=</span> trans<span class="punctuation">,</span> y <span class="operator">=</span> cty<span class="punctuation">)</span><span class="punctuation">)</span> <span class="operator">+</span> </span><br><span class="line">  geom_boxplot<span class="punctuation">(</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/rmd_0623/unnamed-chunk-3-1.png"><!-- --></p>
+<p>-t.test 검정<br> +귀무가설 :auto와 manual의 cty평균은 차이가 없다.<br> +대립가설 :auto와 manual의 cty평균은 차이가 있다.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">t.test<span class="punctuation">(</span>data <span class="operator">=</span> mpg1<span class="punctuation">,</span> cty <span class="operator">~</span> trans<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">## </span><br><span class="line">## 	Welch Two Sample t-test</span><br><span class="line">## </span><br><span class="line">## data:  cty by trans</span><br><span class="line">## t = -4.5375, df = 132.32, p-value = 1.263e-05</span><br><span class="line">## alternative hypothesis: true difference in means between group auto and group manual is not equal to 0</span><br><span class="line">## 95 percent confidence interval:</span><br><span class="line">##  -3.887311 -1.527033</span><br><span class="line">## sample estimates:</span><br><span class="line">##   mean in group auto mean in group manual </span><br><span class="line">##             15.96815             18.67532</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#종속변수 ~ 독립변수 Y ~ X 반응변수 ~ 설명변수 </span></span><br></pre></td></tr></table></figure>
+<p>–시각화한 것은 차이를 모르겠지만 통계를 통해 차이가 있음을 알 수 있다.(대립가설 성립)P-value&lt;0.5</p>
+<p>-cf..두 그룹의 평균 차이 검정하기 전에<br>  +사전 필수 검증요소가 있다.바로 등분산 검정</p>
+<p>  +등분산 검정<br>   -&gt;두 그룹간의 분산이 비슷하면 –&gt;t.test(모수검정)<br>   -&gt;두 그룹간의 분산이 다르면–&gt;(비모수검정)<br>   -&gt;귀무가설: 두 그룹간의 분산이 비슷하다<br>      p.value&gt;0.05<br>   -&gt;대립가설: 두 그룹간의 분산이 다르다.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var.test<span class="punctuation">(</span>data <span class="operator">=</span>mpg1<span class="punctuation">,</span> cty<span class="operator">~</span>trans<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">## </span><br><span class="line">## 	F test to compare two variances</span><br><span class="line">## </span><br><span class="line">## data:  cty by trans</span><br><span class="line">## F = 0.73539, num df = 156, denom df = 76, p-value = 0.1101</span><br><span class="line">## alternative hypothesis: true ratio of variances is not equal to 1</span><br><span class="line">## 95 percent confidence interval:</span><br><span class="line">##  0.4912917 1.0719468</span><br><span class="line">## sample estimates:</span><br><span class="line">## ratio of variances </span><br><span class="line">##          0.7353887</span><br></pre></td></tr></table></figure>
+<p>   p.value&gt;0.05이므로 귀무가설 성립. 등분산으로 본다.</p>
+<p>   -시각화</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ggplot<span class="punctuation">(</span>mpg1<span class="punctuation">,</span> aes<span class="punctuation">(</span>x <span class="operator">=</span> cty<span class="punctuation">,</span> fill <span class="operator">=</span> trans<span class="punctuation">)</span><span class="punctuation">)</span> <span class="operator">+</span> </span><br><span class="line">  <span class="comment"># geom_histogram() +</span></span><br><span class="line">  geom_density<span class="punctuation">(</span>alpha <span class="operator">=</span> <span class="number">0.1</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/rmd_0623/unnamed-chunk-6-1.png"><!-- --></p>
+<h3 id="교차-분석"><a href="#교차-분석" class="headerlink" title="교차 분석"></a>교차 분석</h3><p> -범주형 변수들이 관계가 있다는 것을 검정<br> -비율에 차이가 있는 지 검정<br> -교차분석 검정은 R의 chisq.test()함수로 진행<br> -귀무가설: tras에 따라 drv(4,f,r)의 (비율)차이가 없다.<br> -대립가설: tras에 따라 drv의 차이가 있다.<br> -빈도표&#x2F;비율<br> -1빈도표</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">table<span class="punctuation">(</span>mpg1<span class="operator">$</span>trans<span class="punctuation">,</span>mpg1<span class="operator">$</span>drv<span class="punctuation">)</span><span class="comment">#교차분석석</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">##         </span><br><span class="line">##           4  f  r</span><br><span class="line">##   auto   75 65 17</span><br><span class="line">##   manual 28 41  8</span><br></pre></td></tr></table></figure>
+<p> -2비율</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">prop.table<span class="punctuation">(</span>table<span class="punctuation">(</span>mpg1<span class="operator">$</span>trans<span class="punctuation">,</span>mpg1<span class="operator">$</span>drv<span class="punctuation">)</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">##         </span><br><span class="line">##                  4         f         r</span><br><span class="line">##   auto   0.4777070 0.4140127 0.1082803</span><br><span class="line">##   manual 0.3636364 0.5324675 0.1038961</span><br></pre></td></tr></table></figure>
+<p> -auto 4륜구동이 47%<br> -manual 전륜구동이 53% 가장 많음<br> -실제로 통계적으로 봤을 때 차이가 있는지 검정</p>
+<p> -귀무가설: tras에 따라 drv(4,f,r)의 (비율)차이가 없다.<br> -대립가설: tras에 따라 drv의 차이가 있다.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chisq.test<span class="punctuation">(</span>mpg1<span class="operator">$</span>trans<span class="punctuation">,</span>mpg1<span class="operator">$</span>drv<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">## </span><br><span class="line">## 	Pearson&#x27;s Chi-squared test</span><br><span class="line">## </span><br><span class="line">## data:  mpg1$trans and mpg1$drv</span><br><span class="line">## X-squared = 3.1368, df = 2, p-value = 0.2084</span><br></pre></td></tr></table></figure>
+<p> p.value&gt;0.05이므로 귀무가설 성립. 차이가 없다.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://westar99.github.io/2022/06/23/day0623/" data-id="cl4qpgeqk0000youqh2erg8w7" data-title="Untitled" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-day0622" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/06/22/day0622/" class="article-date">
@@ -521,6 +621,10 @@
       <ul>
         
           <li>
+            <a href="/2022/06/23/day0623/">Untitled</a>
+          </li>
+        
+          <li>
             <a href="/2022/06/22/day0622/">220622</a>
           </li>
         
@@ -534,10 +638,6 @@
         
           <li>
             <a href="/2022/06/20/day0617_1/">복습day0617</a>
-          </li>
-        
-          <li>
-            <a href="/2022/06/20/test/">test</a>
           </li>
         
       </ul>
