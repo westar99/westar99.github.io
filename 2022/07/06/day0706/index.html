@@ -1,0 +1,1482 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>CHAI JEHYUNG</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="CHAI JEHYUNG"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="CHAI JEHYUNG"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="title: ‘REVIEW-그래프와 머신러닝’date: ‘2022-07-06 09:00’ 데이터 분석(머신러닝, 딥러닝) 프로세스 데이터 불러오기 CSV, 오라클, MySQL, PostgreSQL, 클라우드 DB연동   탐색적 자료 분석 데이터 전처리 및 가공   잠정적인 컬럼의 갯수를 지정 머신러닝 모델(&amp;#x3D;통계 모델링, t.test, 분산분석,"><meta property="og:type" content="blog"><meta property="og:title" content="CHAI JEHYUNG"><meta property="og:url" content="https://westar99.github.io/2022/07/06/day0706/"><meta property="og:site_name" content="CHAI JEHYUNG"><meta property="og:description" content="title: ‘REVIEW-그래프와 머신러닝’date: ‘2022-07-06 09:00’ 데이터 분석(머신러닝, 딥러닝) 프로세스 데이터 불러오기 CSV, 오라클, MySQL, PostgreSQL, 클라우드 DB연동   탐색적 자료 분석 데이터 전처리 및 가공   잠정적인 컬럼의 갯수를 지정 머신러닝 모델(&amp;#x3D;통계 모델링, t.test, 분산분석,"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://westar99.github.io/images/day0706/output_5_1.png"><meta property="og:image" content="https://westar99.github.io/images/day0706/output_6_1.png"><meta property="og:image" content="https://westar99.github.io/images/day0706/output_8_1.png"><meta property="og:image" content="https://westar99.github.io/images/day0706/output_9_1.png"><meta property="og:image" content="https://westar99.github.io/images/day0706/output_10_1.png"><meta property="og:image" content="https://westar99.github.io/images/day0706/output_12_1.png"><meta property="og:image" content="https://westar99.github.io/images/day0706/output_13_1.png"><meta property="og:image" content="https://westar99.github.io/images/day0706/output_14_1.png"><meta property="og:image" content="https://westar99.github.io/images/day0706/output_15_1.png"><meta property="og:image" content="https://westar99.github.io/images/day0706/output_16_1.png"><meta property="og:image" content="https://westar99.github.io/images/day0706/output_20_1.png"><meta property="og:image" content="https://westar99.github.io/images/day0706/output_21_1.png"><meta property="og:image" content="https://westar99.github.io/images/day0706/output_23_1.png"><meta property="og:image" content="https://westar99.github.io/images/day0706/output_24_1.png"><meta property="og:image" content="https://westar99.github.io/images/day0706/output_25_1.png"><meta property="og:image" content="https://westar99.github.io/images/day0706/output_26_1.png"><meta property="og:image" content="https://westar99.github.io/images/day0706/output_27_1.png"><meta property="og:image" content="https://westar99.github.io/images/day0706/output_28_1.png"><meta property="og:image" content="https://westar99.github.io/images/day0706/output_29_1.png"><meta property="og:image" content="https://westar99.github.io/images/day0706/output_33_0.png"><meta property="og:image" content="https://westar99.github.io/images/day0706/output_34_1.png"><meta property="og:image" content="https://westar99.github.io/images/day0706/output_37_0.png"><meta property="og:image" content="https://westar99.github.io/images/day0706/output_39_0.png"><meta property="og:image" content="https://westar99.github.io/images/day0706/output_43_0.png"><meta property="og:image" content="https://westar99.github.io/images/day0706/output_45_0.png"><meta property="article:published_time" content="2022-07-06T07:38:20.000Z"><meta property="article:modified_time" content="2022-07-06T07:44:05.811Z"><meta property="article:author" content="John Doe"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/images/day0706/output_5_1.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://westar99.github.io/2022/07/06/day0706/"},"headline":"CHAI JEHYUNG","image":["https://westar99.github.io/images/day0706/output_5_1.png","https://westar99.github.io/images/day0706/output_6_1.png","https://westar99.github.io/images/day0706/output_8_1.png","https://westar99.github.io/images/day0706/output_9_1.png","https://westar99.github.io/images/day0706/output_10_1.png","https://westar99.github.io/images/day0706/output_12_1.png","https://westar99.github.io/images/day0706/output_13_1.png","https://westar99.github.io/images/day0706/output_14_1.png","https://westar99.github.io/images/day0706/output_15_1.png","https://westar99.github.io/images/day0706/output_16_1.png","https://westar99.github.io/images/day0706/output_20_1.png","https://westar99.github.io/images/day0706/output_21_1.png","https://westar99.github.io/images/day0706/output_23_1.png","https://westar99.github.io/images/day0706/output_24_1.png","https://westar99.github.io/images/day0706/output_25_1.png","https://westar99.github.io/images/day0706/output_26_1.png","https://westar99.github.io/images/day0706/output_27_1.png","https://westar99.github.io/images/day0706/output_28_1.png","https://westar99.github.io/images/day0706/output_29_1.png","https://westar99.github.io/images/day0706/output_33_0.png","https://westar99.github.io/images/day0706/output_34_1.png","https://westar99.github.io/images/day0706/output_37_0.png","https://westar99.github.io/images/day0706/output_39_0.png","https://westar99.github.io/images/day0706/output_43_0.png","https://westar99.github.io/images/day0706/output_45_0.png"],"datePublished":"2022-07-06T07:38:20.000Z","dateModified":"2022-07-06T07:44:05.811Z","author":{"@type":"Person","name":"John Doe"},"publisher":{"@type":"Organization","name":"CHAI JEHYUNG","logo":{"@type":"ImageObject","url":"https://westar99.github.io/img/logo.svg"}},"description":"title: ‘REVIEW-그래프와 머신러닝’date: ‘2022-07-06 09:00’ 데이터 분석(머신러닝, 딥러닝) 프로세스 데이터 불러오기 CSV, 오라클, MySQL, PostgreSQL, 클라우드 DB연동   탐색적 자료 분석 데이터 전처리 및 가공   잠정적인 컬럼의 갯수를 지정 머신러닝 모델(&#x3D;통계 모델링, t.test, 분산분석,"}</script><link rel="canonical" href="https://westar99.github.io/2022/07/06/day0706/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="CHAI JEHYUNG" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-07-06T07:38:20.000Z" title="2022. 7. 6. 오후 4:38:20">2022-07-06</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-07-06T07:44:05.811Z" title="2022. 7. 6. 오후 4:44:05">2022-07-06</time></span><span class="level-item">an hour read (About 8039 words)</span></div></div><div class="content"><hr>
+<h1 id="title-‘REVIEW-그래프와-머신러닝’"><a href="#title-‘REVIEW-그래프와-머신러닝’" class="headerlink" title="title: ‘REVIEW-그래프와 머신러닝’"></a><strong>title: ‘REVIEW-그래프와 머신러닝’</strong></h1><h1 id="date-‘2022-07-06-09-00’"><a href="#date-‘2022-07-06-09-00’" class="headerlink" title="date: ‘2022-07-06 09:00’"></a><strong>date: ‘2022-07-06 09:00’</strong></h1><hr>
+<h2 id="데이터-분석-머신러닝-딥러닝-프로세스"><a href="#데이터-분석-머신러닝-딥러닝-프로세스" class="headerlink" title="데이터 분석(머신러닝, 딥러닝) 프로세스"></a>데이터 분석(머신러닝, 딥러닝) 프로세스</h2><ul>
+<li>데이터 불러오기<ul>
+<li>CSV, 오라클, MySQL, PostgreSQL, 클라우드 DB연동</li>
+</ul>
+</li>
+<li>탐색적 자료 분석<ul>
+<li>데이터 전처리 및 가공</li>
+</ul>
+</li>
+<li>잠정적인 컬럼의 갯수를 지정</li>
+<li>머신러닝 모델(&#x3D;통계 모델링, t.test, 분산분석, 교차분석)</li>
+<li>머신러닝 모델의 경우 배포(지금은 다루지 않음)</li>
+</ul>
+<ul>
+<li>JSP-스프링 웹개발 시 배우게 됨.</li>
+</ul>
+<ul>
+<li><p>통계 모델링 경우 p-value값 기준으로 귀무가설 및 대립가설 검정</p>
+</li>
+<li><p>(공통) 결과보고서를 작성 필요.</p>
+</li>
+</ul>
+<ul>
+<li>.PPT준비</li>
+</ul>
+<h2 id="그래프-복습"><a href="#그래프-복습" class="headerlink" title="그래프 복습"></a>그래프 복습</h2><ul>
+<li>수치형 데이터 시각화</li>
+<li>범주형 데이터 시각화</li>
+<li>데이터 관계 시각화</li>
+</ul>
+<ul>
+<li>matplotlib 라이브러리 방법(복잡)</li>
+<li>seaborn 라이브러리 방법(단순)</li>
+</ul>
+<h3 id="수치형-데이터-시각화"><a href="#수치형-데이터-시각화" class="headerlink" title="수치형 데이터 시각화"></a>수치형 데이터 시각화</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line">titanic = sns.load_dataset(<span class="string">&#x27;titanic&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(titanic.head(<span class="number">10</span>))</span><br></pre></td></tr></table></figure>
+
+<pre><code>   survived  pclass     sex   age  sibsp  parch     fare embarked   class  \
+0         0       3    male  22.0      1      0   7.2500        S   Third   
+1         1       1  female  38.0      1      0  71.2833        C   First   
+2         1       3  female  26.0      0      0   7.9250        S   Third   
+3         1       1  female  35.0      1      0  53.1000        S   First   
+4         0       3    male  35.0      0      0   8.0500        S   Third   
+5         0       3    male   NaN      0      0   8.4583        Q   Third   
+6         0       1    male  54.0      0      0  51.8625        S   First   
+7         0       3    male   2.0      3      1  21.0750        S   Third   
+8         1       3  female  27.0      0      2  11.1333        S   Third   
+9         1       2  female  14.0      1      0  30.0708        C  Second   
+
+     who  adult_male deck  embark_town alive  alone  
+0    man        True  NaN  Southampton    no  False  
+1  woman       False    C    Cherbourg   yes  False  
+2  woman       False  NaN  Southampton   yes   True  
+3  woman       False    C  Southampton   yes  False  
+4    man        True  NaN  Southampton    no   True  
+5    man        True  NaN   Queenstown    no   True  
+6    man        True    E  Southampton    no   True  
+7  child       False  NaN  Southampton    no  False  
+8  woman       False  NaN  Southampton   yes  False  
+9  child       False  NaN    Cherbourg   yes  False  
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 히스토그램</span></span><br><span class="line">sns.histplot(data= titanic, x = <span class="string">&#x27;age&#x27;</span>,bins=<span class="number">10</span>, hue= <span class="string">&#x27;alive&#x27;</span>,multiple=<span class="string">&#x27;stack&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7faf86744d10&gt;
+</code></pre>
+<p><img src="/images/day0706/output_5_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 확률밀도추정(KDE) 함수 그래프- 히스토그램을 부드러운 곡선 형태로 표현한다.</span></span><br><span class="line"><span class="comment"># 연속형 데이터 1개만 쓸 때 사용, y축은 수량의 비율</span></span><br><span class="line">sns.kdeplot(data =titanic, x =<span class="string">&#x27;age&#x27;</span>,hue= <span class="string">&#x27;alive&#x27;</span>,multiple=<span class="string">&#x27;stack&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7faf856ddf50&gt;
+</code></pre>
+<p><img src="/images/day0706/output_6_1.png" alt="png"></p>
+<ul>
+<li>분포도</li>
+<li>수치형 데이터 한개 컬럼의 분포를 나타내는 그래프</li>
+</ul>
+<ul>
+<li>정규분포인가?</li>
+</ul>
+<ul>
+<li>ditstplot()히스토그램에 kdeplot와,rugplot을 한번에 그림</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sns.displot(data =titanic, x =<span class="string">&#x27;age&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x7faf85734850&gt;
+</code></pre>
+<p><img src="/images/day0706/output_8_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sns.displot(data =titanic, x =<span class="string">&#x27;age&#x27;</span>,kind=<span class="string">&#x27;kde&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x7faf85590050&gt;
+</code></pre>
+<p><img src="/images/day0706/output_9_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sns.displot(data =titanic, x =<span class="string">&#x27;age&#x27;</span>,kde =<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x7faf85621910&gt;
+</code></pre>
+<p><img src="/images/day0706/output_10_1.png" alt="png"></p>
+<h2 id="범주형-데이터-시각화"><a href="#범주형-데이터-시각화" class="headerlink" title="범주형 데이터 시각화"></a>범주형 데이터 시각화</h2><ul>
+<li>x축 범주형, y축 수치 데이터</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 막대 그래프-matplotlib은 개수를 세는 작업을 해줘야하지만 seaborn은 알아서 해준다.</span></span><br><span class="line">sns.barplot(x=<span class="string">&#x27;class&#x27;</span>,y=<span class="string">&#x27;fare&#x27;</span>,data= titanic)</span><br><span class="line"><span class="comment"># 클래스 별로 가격을 표시했지만 그 가격은 평균치를 나타내고 에러바(오차막대)를 만들어줌</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7faf8540f810&gt;
+</code></pre>
+<p><img src="/images/day0706/output_12_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 포인트 플롯</span></span><br><span class="line">sns.pointplot(x=<span class="string">&#x27;class&#x27;</span>,y=<span class="string">&#x27;fare&#x27;</span>,data=titanic)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7faf853f1890&gt;
+</code></pre>
+<p><img src="/images/day0706/output_13_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># boxplot(박스플롯)</span></span><br><span class="line">sns.boxplot(x=<span class="string">&#x27;class&#x27;</span>,y=<span class="string">&#x27;age&#x27;</span>,data=titanic)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7faf8535b1d0&gt;
+</code></pre>
+<p><img src="/images/day0706/output_14_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#바이올린 플롯</span></span><br><span class="line">sns.violinplot(x= <span class="string">&#x27;class&#x27;</span>, y=<span class="string">&#x27;age&#x27;</span>, hue=<span class="string">&#x27;sex&#x27;</span>,data=titanic,split =<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7faf8527f590&gt;
+</code></pre>
+<p><img src="/images/day0706/output_15_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 카운트 플롯</span></span><br><span class="line"><span class="comment"># - 범주형데이터의 갯수 확인할 때 사용</span></span><br><span class="line">sns.countplot(x = <span class="string">&#x27;alive&#x27;</span>, data= titanic)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7faf852701d0&gt;
+</code></pre>
+<p><img src="/images/day0706/output_16_1.png" alt="png"></p>
+<h2 id="데이터-관계-시각화"><a href="#데이터-관계-시각화" class="headerlink" title="데이터 관계 시각화"></a>데이터 관계 시각화</h2><ul>
+<li>여러 데이터 사이의 관계도 파악을 위한 그래</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 히트맵</span></span><br><span class="line">flights =sns.load_dataset(<span class="string">&#x27;flights&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(flights.head(<span class="number">7</span>))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<pre><code>   year month  passengers
+0  1949   Jan         112
+1  1949   Feb         118
+2  1949   Mar         132
+3  1949   Apr         129
+4  1949   May         121
+5  1949   Jun         135
+6  1949   Jul         148
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#  각 연도별 월별 승객수 구하기</span></span><br><span class="line"><span class="comment"># flights[&#x27;year&#x27;].value_count()</span></span><br><span class="line">flights_pivot = flights.pivot(index=<span class="string">&#x27;month&#x27;</span>, columns=<span class="string">&#x27;year&#x27;</span>, values=<span class="string">&#x27;passengers&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(flights_pivot)</span><br></pre></td></tr></table></figure>
+
+<pre><code>year   1949  1950  1951  1952  1953  1954  1955  1956  1957  1958  1959  1960
+month                                                                        
+Jan     112   115   145   171   196   204   242   284   315   340   360   417
+Feb     118   126   150   180   196   188   233   277   301   318   342   391
+Mar     132   141   178   193   236   235   267   317   356   362   406   419
+Apr     129   135   163   181   235   227   269   313   348   348   396   461
+May     121   125   172   183   229   234   270   318   355   363   420   472
+Jun     135   149   178   218   243   264   315   374   422   435   472   535
+Jul     148   170   199   230   264   302   364   413   465   491   548   622
+Aug     148   170   199   242   272   293   347   405   467   505   559   606
+Sep     136   158   184   209   237   259   312   355   404   404   463   508
+Oct     119   133   162   191   211   229   274   306   347   359   407   461
+Nov     104   114   146   172   180   203   237   271   305   310   362   390
+Dec     118   140   166   194   201   229   278   306   336   337   405   432
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sns.heatmap(data = flights_pivot)<span class="comment"># 시각화를 통해 1960년대 8월에 가장 사람들 수가 많았다.</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7faf851e8610&gt;
+</code></pre>
+<p><img src="/images/day0706/output_20_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 라인플롯</span></span><br><span class="line">sns.lineplot(x=<span class="string">&#x27;year&#x27;</span>,y=<span class="string">&#x27;passengers&#x27;</span>,data=flights)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7faf85117f10&gt;
+</code></pre>
+<p><img src="/images/day0706/output_21_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 산점도</span></span><br><span class="line">tips =sns.load_dataset(<span class="string">&#x27;tips&#x27;</span>)</span><br><span class="line">tips.head(<span class="number">8</span>)</span><br><span class="line"><span class="comment"># 영수증금액/ 팁/ 성별/ 담배/ 요일/ 시간/ 같이먹은 사람의 수(카운트데이터)</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+  <div id="df-98401926-69e1-464f-9f4f-ce6a7afd0680">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>total_bill</th>
+      <th>tip</th>
+      <th>sex</th>
+      <th>smoker</th>
+      <th>day</th>
+      <th>time</th>
+      <th>size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>16.99</td>
+      <td>1.01</td>
+      <td>Female</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10.34</td>
+      <td>1.66</td>
+      <td>Male</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>21.01</td>
+      <td>3.50</td>
+      <td>Male</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>23.68</td>
+      <td>3.31</td>
+      <td>Male</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>24.59</td>
+      <td>3.61</td>
+      <td>Female</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>25.29</td>
+      <td>4.71</td>
+      <td>Male</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>8.77</td>
+      <td>2.00</td>
+      <td>Male</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>26.88</td>
+      <td>3.12</td>
+      <td>Male</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-98401926-69e1-464f-9f4f-ce6a7afd0680')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+<p>  &lt;svg xmlns&#x3D;”<a target="_blank" rel="noopener" href="http://www.w3.org/2000/svg&quot;">http://www.w3.org/2000/svg&quot;</a> height&#x3D;”24px”viewBox&#x3D;”0 0 24 24”<br>       width&#x3D;”24px”&gt;<br>    <path d="M0 0h24v24H0V0z" fill="none"/><br>    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/><br>  </svg><br>      </button></p>
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+<pre><code>  &lt;script&gt;
+    const buttonEl =
+      document.querySelector(&#39;#df-98401926-69e1-464f-9f4f-ce6a7afd0680 button.colab-df-convert&#39;);
+    buttonEl.style.display =
+      google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
+
+    async function convertToInteractive(key) &#123;
+      const element = document.querySelector(&#39;#df-98401926-69e1-464f-9f4f-ce6a7afd0680&#39;);
+      const dataTable =
+        await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
+                                                 [key], &#123;&#125;);
+      if (!dataTable) return;
+
+      const docLinkHtml = &#39;Like what you see? Visit the &#39; +
+        &#39;&lt;a target=&quot;_blank&quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;&#39;
+        + &#39; to learn more about interactive tables.&#39;;
+      element.innerHTML = &#39;&#39;;
+      dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
+      await google.colab.output.renderOutput(dataTable, element);
+      const docLink = document.createElement(&#39;div&#39;);
+      docLink.innerHTML = docLinkHtml;
+      element.appendChild(docLink);
+    &#125;
+  &lt;/script&gt;
+&lt;/div&gt;
+</code></pre>
+  </div>
+
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 두개의 연속형 데이터</span></span><br><span class="line">sns.scatterplot(x=<span class="string">&#x27;total_bill&#x27;</span>,y=<span class="string">&#x27;tip&#x27;</span>,data= tips)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7faf8564f0d0&gt;
+</code></pre>
+<p><img src="/images/day0706/output_23_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sns.scatterplot(x=<span class="string">&#x27;total_bill&#x27;</span>,y=<span class="string">&#x27;tip&#x27;</span>,hue =<span class="string">&#x27;time&#x27;</span>,data= tips)</span><br><span class="line"><span class="comment"># 저녁에 더 많은 팁을 준다.</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7faf854beed0&gt;
+</code></pre>
+<p><img src="/images/day0706/output_24_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sns.scatterplot(x=<span class="string">&#x27;total_bill&#x27;</span>,y=<span class="string">&#x27;tip&#x27;</span>,hue =<span class="string">&#x27;sex&#x27;</span>,data= tips)</span><br><span class="line"><span class="comment"># 남자들의 경우 영수증 금액이 클수록 팁의 양(+)에 상관관계가 있다.</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7faf863f4750&gt;
+</code></pre>
+<p><img src="/images/day0706/output_25_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 회귀선</span></span><br><span class="line"><span class="comment">#선형회귀 적합선(상관관계를 표현한 선)을 포함한 산점도를 그리자.</span></span><br><span class="line">sns.regplot(x= <span class="string">&#x27;total_bill&#x27;</span>,y= <span class="string">&#x27;tip&#x27;</span>, data =tips)</span><br><span class="line"><span class="comment"># 30달라를 냈을 때 4달러의 팁이 예상됨.</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7faf866085d0&gt;
+</code></pre>
+<p><img src="/images/day0706/output_26_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sns.countplot(x=<span class="string">&#x27;sex&#x27;</span>,data =tips)</span><br><span class="line"><span class="comment"># 남자와 여자를 비교할 때 남자들이 자주 팁을 준다.</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7faf867a81d0&gt;
+</code></pre>
+<p><img src="/images/day0706/output_27_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sns.countplot(x=<span class="string">&#x27;sex&#x27;</span>,hue=<span class="string">&#x27;time&#x27;</span>,data=tips)</span><br><span class="line"><span class="comment"># 남자가 여자보다 저녁시간에 팁주는 횟수가 많다.</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7faf86796b10&gt;
+</code></pre>
+<p><img src="/images/day0706/output_28_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sns.relplot(x=<span class="string">&quot;total_bill&quot;</span>,y=<span class="string">&quot;tip&quot;</span>,hue=<span class="string">&#x27;size&#x27;</span>,data=tips)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x7faf8692f450&gt;
+</code></pre>
+<p><img src="/images/day0706/output_29_1.png" alt="png"></p>
+<h2 id="머신러닝-리뷰"><a href="#머신러닝-리뷰" class="headerlink" title="머신러닝 리뷰"></a>머신러닝 리뷰</h2><ul>
+<li>가장 인기 있는 모델</li>
+</ul>
+<ul>
+<li>lightGBM, XGBoost</li>
+</ul>
+<h3 id="선형회귀"><a href="#선형회귀" class="headerlink" title="선형회귀"></a>선형회귀</h3><ul>
+<li>선형회귀식을 찾는 것이 중요</li>
+<li>$y &#x3D;3 x +4$ 에 근사한 데이터 50개 생성</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 시드값 고정- 랜덤한 내용이 다른 사람들과 같은 결과를 얻기 위해</span></span><br><span class="line">np.random.seed(<span class="number">0</span>)</span><br><span class="line">intercept = <span class="number">4</span> <span class="comment"># 절편, 상수</span></span><br><span class="line">slope = <span class="number">3</span> <span class="comment"># 기울기</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 변동성 주기 위해 노이즈 생성</span></span><br><span class="line">noise = np.random.randn(<span class="number">50</span>, <span class="number">1</span>)</span><br><span class="line">x = <span class="number">5</span> * np.random.rand(<span class="number">50</span>, <span class="number">1</span>) <span class="comment"># 0과 5사이의 실숫값 50개 생성</span></span><br><span class="line">y = slope * x + intercept + noise</span><br><span class="line"></span><br><span class="line"><span class="comment"># 데이터 프레임 생성</span></span><br><span class="line">data = pd.DataFrame(&#123;<span class="string">&#x27;X&#x27;</span> : x[:, <span class="number">0</span>], <span class="string">&#x27;Y&#x27;</span> : y[:, <span class="number">0</span>]&#125;)</span><br><span class="line"><span class="built_in">print</span>(data)</span><br></pre></td></tr></table></figure>
+
+<pre><code>           X          Y
+0   0.794848   8.148596
+1   0.551876   6.055784
+2   3.281648  14.823682
+3   0.690915   8.313637
+4   0.982912   8.816293
+5   1.843626   8.553600
+6   4.104966  17.264987
+7   0.485506   5.305162
+8   4.189725  16.465955
+9   0.480492   5.852075
+10  4.882297  18.790936
+11  2.343256  12.484042
+12  4.883805  19.412454
+13  3.024228  13.194358
+14  3.696318  15.532817
+15  0.195939   4.921491
+16  1.414035   9.736184
+17  0.600983   5.597790
+18  1.480701   8.755171
+19  0.593639   4.926820
+20  1.589916   6.216758
+21  2.071315  10.867564
+22  0.320737   5.826649
+23  3.462361  13.644917
+24  2.833007  14.768776
+25  1.326947   6.526477
+26  2.616240  11.894479
+27  0.469703   5.221924
+28  2.879732  14.171977
+29  4.646481  19.408802
+30  1.592845   8.933482
+31  3.337052  14.389318
+32  0.658989   5.089182
+33  3.581636  12.764112
+34  1.447030   7.993179
+35  0.915957   6.904219
+36  2.932565  14.027985
+37  0.100538   5.503993
+38  4.144700  16.046774
+39  0.023477   3.768129
+40  3.389083  13.118695
+41  1.350040   6.630102
+42  3.675970  13.321640
+43  4.810943  20.383604
+44  1.243766   7.221645
+45  2.880787  12.204286
+46  2.960210  11.627834
+47  2.861260  13.361269
+48  1.115408   5.732327
+49  4.763745  18.078495
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">fig, ax = plt.subplots()</span><br><span class="line">ax.scatter(data[<span class="string">&#x27;X&#x27;</span>], data[<span class="string">&#x27;Y&#x27;</span>])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/day0706/output_33_0.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns </span><br><span class="line">sns.scatterplot(x = <span class="string">&#x27;X&#x27;</span>, y = <span class="string">&#x27;Y&#x27;</span>, data = data)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7faf85003c10&gt;
+</code></pre>
+<p><img src="/images/day0706/output_34_1.png" alt="png"></p>
+<h4 id="선형회귀-모형-훈련"><a href="#선형회귀-모형-훈련" class="headerlink" title="선형회귀 모형 훈련"></a>선형회귀 모형 훈련</h4><ul>
+<li>모형 생성 후, 회귀계수 3과 y절편 4에 근사한 값이 나와야 함</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> linear_model</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br><span class="line">lr_model = LinearRegression()<span class="comment">#,선형회귀 모델</span></span><br><span class="line">lr_model.fit(x,y)<span class="comment">##모델훈련</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;y절편:&#x27;</span>, lr_model.intercept_)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;회귀계수:&#x27;</span>, lr_model.coef_)</span><br></pre></td></tr></table></figure>
+
+<pre><code>y절편: [4.05757639]
+회귀계수: [[3.03754061]]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 예측값</span></span><br><span class="line">y_pred = lr_model.predict(x)</span><br><span class="line">fig, ax = plt.subplots()</span><br><span class="line">ax.scatter(x, y)</span><br><span class="line">ax.plot(x, y_pred, color=<span class="string">&#x27;green&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># slope, intercept </span></span><br><span class="line">label = <span class="string">&#x27;slope: &#123;&#125;\nintercept: &#123;&#125;&#x27;</span>.<span class="built_in">format</span>(<span class="built_in">round</span>(lr_model.coef_[<span class="number">0</span>][<span class="number">0</span>], <span class="number">2</span>), <span class="built_in">round</span>(lr_model.intercept_[<span class="number">0</span>], <span class="number">2</span>))</span><br><span class="line">ax.text(<span class="number">3.5</span>, <span class="number">4</span>, label, style =<span class="string">&#x27;italic&#x27;</span>, </span><br><span class="line">        fontsize = <span class="number">10</span>, color =<span class="string">&quot;green&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/day0706/output_37_0.png" alt="png"></p>
+<h3 id="로지스틱-회귀"><a href="#로지스틱-회귀" class="headerlink" title="로지스틱 회귀"></a>로지스틱 회귀</h3><p>- </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sigmoid</span>(<span class="params">arr, scale=<span class="number">1</span></span>):</span><br><span class="line">    arr = np.asarray(arr)</span><br><span class="line">    result = <span class="number">1</span>/(<span class="number">1</span> + np.exp(-arr*scale))</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line">x = np.linspace(-<span class="number">6</span>, <span class="number">6</span>)</span><br><span class="line">y = sigmoid(x)</span><br><span class="line"></span><br><span class="line">fig, ax = plt.subplots()</span><br><span class="line">ax.plot(x, y)</span><br><span class="line">ax.grid(which=<span class="string">&#x27;major&#x27;</span>, axis=<span class="string">&#x27;y&#x27;</span>, linestyle=<span class="string">&#x27;--&#x27;</span>)</span><br><span class="line">ax.axvline(x=<span class="number">0</span>, color=<span class="string">&#x27;r&#x27;</span>, linestyle=<span class="string">&#x27;--&#x27;</span>, linewidth=<span class="number">1</span>)</span><br><span class="line">ax.set_ylim(<span class="number">0</span>,<span class="number">1</span>)</span><br><span class="line">ax.set_yticks([<span class="number">0</span>, <span class="number">1</span>, <span class="number">0.5</span>])</span><br><span class="line">ax.text(<span class="number">0</span>-<span class="number">0.1</span>, <span class="number">0.5</span>, <span class="string">&#x27;0.5&#x27;</span>, ha=<span class="string">&#x27;right&#x27;</span>)</span><br><span class="line">ax.set_title(<span class="string">&#x27;Sigmoid Graph&#x27;</span>)</span><br><span class="line">plt.show()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/day0706/output_39_0.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 라이브러리 불러오기</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> classification_report, confusion_matrix</span><br><span class="line"></span><br><span class="line"><span class="comment"># 데이터 가져오기</span></span><br><span class="line">x = np.arange(<span class="number">10</span>).reshape(-<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">y = np.array([<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 모델 생성 및 학습</span></span><br><span class="line">model = LogisticRegression(solver=<span class="string">&#x27;liblinear&#x27;</span>, C=<span class="number">10.0</span>, random_state=<span class="number">0</span>)</span><br><span class="line">model.fit(x, y)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>LogisticRegression(C=10.0, random_state=0, solver=&#39;liblinear&#39;)
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 모형 평가</span></span><br><span class="line">p_pred =model.predict_proba(x)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;p_pred&#x27;</span>,p_pred,sep =<span class="string">&#x27;\n&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>p_pred
+[[0.97979027 0.02020973]
+ [0.94958202 0.05041798]
+ [0.87976149 0.12023851]
+ [0.73975066 0.26024934]
+ [0.52477284 0.47522716]
+ [0.30020373 0.69979627]
+ [0.1428487  0.8571513 ]
+ [0.06080627 0.93919373]
+ [0.02453462 0.97546538]
+ [0.00967652 0.99032348]]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">y_pred = model.predict(x)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;y_pred&#x27;</span>,y_pred)</span><br></pre></td></tr></table></figure>
+
+<pre><code>y_pred [0 0 0 0 0 1 1 1 1 1]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">fig, ax = plt.subplots()</span><br><span class="line">ax.scatter(x, y)</span><br><span class="line">ax.plot(x, p_pred[:, <span class="number">1</span>], color = <span class="string">&#x27;black&#x27;</span>,  marker=<span class="string">&#x27;o&#x27;</span>, markersize=<span class="number">6</span>)</span><br><span class="line">ax.plot()</span><br><span class="line"></span><br><span class="line">ax.set_xticks(x)</span><br><span class="line">ax.set_yticks(np.arange(<span class="number">0</span>, <span class="number">1.1</span>, <span class="number">0.1</span>))</span><br><span class="line"></span><br><span class="line">ax.grid(which=<span class="string">&#x27;major&#x27;</span>, alpha=<span class="number">0.5</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/day0706/output_43_0.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conf_m = confusion_matrix(y,y_pred)</span><br><span class="line"><span class="built_in">print</span>(conf_m)</span><br></pre></td></tr></table></figure>
+
+<pre><code>[[5 0]
+ [0 5]]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">cm = confusion_matrix(y, y_pred)</span><br><span class="line"></span><br><span class="line">fig, ax = plt.subplots(figsize=(<span class="number">8</span>, <span class="number">8</span>))</span><br><span class="line">ax.imshow(cm, cmap = <span class="string">&#x27;Pastel1&#x27;</span>)<span class="comment"># pastel2는 색깔임 &#x27;GnBu&#x27;</span></span><br><span class="line">ax.grid(<span class="literal">False</span>)</span><br><span class="line">ax.xaxis.<span class="built_in">set</span>(ticks=(<span class="number">0</span>, <span class="number">1</span>), ticklabels=(<span class="string">&#x27;Predicted 0&#x27;</span>, <span class="string">&#x27;Predicted 1&#x27;</span>))</span><br><span class="line">ax.yaxis.<span class="built_in">set</span>(ticks=(<span class="number">0</span>, <span class="number">1</span>), ticklabels=(<span class="string">&#x27;Actual 0&#x27;</span>, <span class="string">&#x27;Actual 1&#x27;</span>))</span><br><span class="line">ax.set_ylim(<span class="number">1.5</span>, -<span class="number">0.5</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>):</span><br><span class="line">        ax.text(j, i, cm[i, j], ha=<span class="string">&#x27;center&#x27;</span>, va=<span class="string">&#x27;center&#x27;</span>, color=<span class="string">&#x27;black&#x27;</span>, fontsize=<span class="number">20</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/day0706/output_45_0.png" alt="png"></p>
+<h3 id="결정-트리"><a href="#결정-트리" class="headerlink" title="결정 트리"></a>결정 트리</h3><ul>
+<li>분류와 회귀 문제에 모두 사용가능</li>
+</ul>
+<h3 id="주요-개념"><a href="#주요-개념" class="headerlink" title="주요 개념"></a>주요 개념</h3><ul>
+<li>작동 원리<ul>
+<li>데이터를 가장 잘 구분하는 조건을 정함.</li>
+<li>조건을 기준으로 데이터를 두 범주로 나눔</li>
+<li>나뉜 각 범주의 데이터를 구분하는 조건을 정함</li>
+<li>각 조건을 기준으로 데이터를 두 범주로 나눔</li>
+<li>언제까지 계속 분할할지 정한 후, 최종 결정 값을 구함.</li>
+</ul>
+</li>
+<li>불순도(Impurity)<ul>
+<li>한 범주 안에 서로 다른 데이터가 얼마나 섞여 있는지 나타냄</li>
+<li>흰색과 검은색이 50:50으로 섞여 있다. (불순도 최대)</li>
+<li>흰색과 검은색으로 완전 분리 되었다. (불순도 최소)</li>
+</ul>
+</li>
+<li>엔트로피(Entropy)<ul>
+<li>불확실한 정도를 의미함. 0 ~ 1로 정함.</li>
+<li>흰색과 검은색이 50:50으로 섞여 있다. 엔트로피 1</li>
+<li>흰색과 검은색으로 완전 분리 되었다. 엔트로피 0</li>
+</ul>
+</li>
+<li>정보이득(Information Gain)<ul>
+<li>1에서 엔트로피를 뺀 수치</li>
+<li>정보 이득을 최대화하는 방향(엔트로피를 최소화 하는 방향)으로 노드를 분할함</li>
+</ul>
+</li>
+<li>지니 불순도(Gini Impurity)<ul>
+<li>지니 불순도 값이 클수록 불순도도 높고, 작을수록 불순도도 낮음. 엔트로피와 마찬가지로 지니 불순도가 낮아지는 방향으로 노드 분할함.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split </span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns </span><br><span class="line"></span><br><span class="line"><span class="comment"># tips 데이터셋 </span></span><br><span class="line">titanic = sns.load_dataset(<span class="string">&#x27;titanic&#x27;</span>)</span><br><span class="line">titanic.info()</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 891 entries, 0 to 890
+Data columns (total 15 columns):
+ #   Column       Non-Null Count  Dtype   
+---  ------       --------------  -----   
+ 0   survived     891 non-null    int64   
+ 1   pclass       891 non-null    int64   
+ 2   sex          891 non-null    object  
+ 3   age          714 non-null    float64 
+ 4   sibsp        891 non-null    int64   
+ 5   parch        891 non-null    int64   
+ 6   fare         891 non-null    float64 
+ 7   embarked     889 non-null    object  
+ 8   class        891 non-null    category
+ 9   who          891 non-null    object  
+ 10  adult_male   891 non-null    bool    
+ 11  deck         203 non-null    category
+ 12  embark_town  889 non-null    object  
+ 13  alive        891 non-null    object  
+ 14  alone        891 non-null    bool    
+dtypes: bool(2), category(2), float64(2), int64(4), object(5)
+memory usage: 80.7+ KB
+</code></pre>
+<ul>
+<li>suvived의 비율을 구한다</li>
+</ul>
+<ul>
+<li>0: 사망자</li>
+<li>1: 생존</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">titanic[<span class="string">&#x27;survived&#x27;</span>].value_counts()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>0    549
+1    342
+Name: survived, dtype: int64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">X = titanic[[<span class="string">&#x27;pclass&#x27;</span>, <span class="string">&#x27;parch&#x27;</span>, <span class="string">&#x27;fare&#x27;</span>]]</span><br><span class="line">y = titanic[<span class="string">&#x27;survived&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 훈련데이터, 테스트 데이터 분리</span></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, y, stratify = y, test_size = <span class="number">0.3</span>, random_state=<span class="number">42</span>)</span><br><span class="line">X_train.shape, X_test.shape, y_train.shape, y_test.shape</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>((623, 3), (268, 3), (623,), (268,))
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tree_model = DecisionTreeClassifier()</span><br><span class="line">tree_model.fit(X_train, y_train)</span><br><span class="line"></span><br><span class="line">acc = tree_model.score(X_test, y_test)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;모형 정확도 : <span class="subst">&#123;acc:<span class="number">.3</span>f&#125;</span>&#x27;</span>) <span class="comment"># 정확도 측정</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>모형 정확도 : 0.675
+</code></pre>
+<h2 id="랜덤-포레스"><a href="#랜덤-포레스" class="headerlink" title="랜덤 포레스"></a>랜덤 포레스</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split </span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns </span><br><span class="line"></span><br><span class="line"><span class="comment"># tips 데이터셋 </span></span><br><span class="line">titanic = sns.load_dataset(<span class="string">&#x27;titanic&#x27;</span>)</span><br><span class="line"></span><br><span class="line">X = titanic[[<span class="string">&#x27;pclass&#x27;</span>, <span class="string">&#x27;parch&#x27;</span>, <span class="string">&#x27;fare&#x27;</span>]]</span><br><span class="line">y = titanic[<span class="string">&#x27;survived&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 훈련데이터, 테스트 데이터 분리</span></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, y, stratify = y, test_size = <span class="number">0.3</span>, random_state=<span class="number">42</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 모델 훈련</span></span><br><span class="line">rf_model = RandomForestClassifier(random_state=<span class="number">42</span>) <span class="comment"># 랜덤 포레스트 정의</span></span><br><span class="line">rf_model.fit(X_train, y_train)</span><br><span class="line"></span><br><span class="line">acc = rf_model.score(X_test, y_test)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;모형 정확도 : <span class="subst">&#123;acc:<span class="number">.3</span>f&#125;</span>&#x27;</span>) <span class="comment"># 정확도 측정</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>모형 정확도 : 0.675
+</code></pre>
+<h2 id="XGBoost-2016-amp-LightGBM"><a href="#XGBoost-2016-amp-LightGBM" class="headerlink" title="XGBoost(2016) &amp; LightGBM"></a>XGBoost(2016) &amp; LightGBM</h2><ul>
+<li>전통적인 머신러닝 알고리즘의 융합<ul>
+<li>선형회귀 릿지 라쏘, 과적합 방지를 위한 규제</li>
+</ul>
+<ul>
+<li>결정트리의 핵심적인 알고리즘</li>
+<li>경사 하강법</li>
+<li>부스팅 기법</li>
+</ul>
+</li>
+<li>문제점 : 파라미터의 개수가 매우 많음</li>
+<li>왜 많이 사용할까?</li>
+</ul>
+<ul>
+<li>모델 학습 속도</li>
+<li>성능</li>
+<li>가장 좋은 모델이란 학습속도는 빠르고 성능이 좋음.(기준: 지금까지 나온 알고리즘과 비교해서)</li>
+</ul>
+<ul>
+<li>언어를 Python,Java에서 시작했어도 C,C++로 가야만 됨.</li>
+<li>개발 초기: 자체 사용 용도로 개발 –&gt; Python Wrapper <ul>
+<li>R, 머신러닝 프레임워크 종류가 다양.</li>
+<li>파이썬 머신러닝 중 Scikit-Learn이 대세로 떠오름</li>
+</ul>
+</li>
+<li>개발 중기: 파이썬 머신러닝 Scikit-Learn에서 API를 사용해 XGBoost을 사용</li>
+</ul>
+<h3 id="XGBoost-Python-Wrapper-방식"><a href="#XGBoost-Python-Wrapper-방식" class="headerlink" title="XGBoost-Python Wrapper 방식"></a>XGBoost-Python Wrapper 방식</h3><ul>
+<li>X_train, Y_train</li>
+<li>각 모듈에 맞도록 행렬을 재변환해야 함.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> xgboost <span class="keyword">as</span> xgb <span class="comment"># 엑스지부스터를 사용-&gt;파이썬래퍼 방식</span></span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 데이터 분리</span></span><br><span class="line">titanic = sns.load_dataset(<span class="string">&#x27;titanic&#x27;</span>)</span><br><span class="line">titanic.info()</span><br><span class="line"></span><br><span class="line"><span class="comment">#x,독립변수 y종속변수</span></span><br><span class="line">X = titanic[[<span class="string">&#x27;pclass&#x27;</span>, <span class="string">&#x27;parch&#x27;</span>, <span class="string">&#x27;fare&#x27;</span>]]</span><br><span class="line">y = titanic[<span class="string">&#x27;survived&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 훈련데이터, 테스트 데이터 분리</span></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, </span><br><span class="line">                                                    y, </span><br><span class="line">                                                    stratify = y, </span><br><span class="line">                                                    test_size = <span class="number">0.3</span>, </span><br><span class="line">                                                    random_state=<span class="number">42</span>)</span><br><span class="line"></span><br><span class="line">X_train.shape, X_test.shape, y_train.shape, y_test.shape</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 891 entries, 0 to 890
+Data columns (total 15 columns):
+ #   Column       Non-Null Count  Dtype   
+---  ------       --------------  -----   
+ 0   survived     891 non-null    int64   
+ 1   pclass       891 non-null    int64   
+ 2   sex          891 non-null    object  
+ 3   age          714 non-null    float64 
+ 4   sibsp        891 non-null    int64   
+ 5   parch        891 non-null    int64   
+ 6   fare         891 non-null    float64 
+ 7   embarked     889 non-null    object  
+ 8   class        891 non-null    category
+ 9   who          891 non-null    object  
+ 10  adult_male   891 non-null    bool    
+ 11  deck         203 non-null    category
+ 12  embark_town  889 non-null    object  
+ 13  alive        891 non-null    object  
+ 14  alone        891 non-null    bool    
+dtypes: bool(2), category(2), float64(2), int64(4), object(5)
+memory usage: 80.7+ KB
+
+
+
+
+
+((623, 3), (268, 3), (623,), (268,))
+</code></pre>
+<ul>
+<li><p><strong>여기가 핵심</strong></p>
+<ul>
+<li>다른 데이터로 변신</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dtrain = xgb.DMatrix(data = X_train, label = y_train)</span><br><span class="line">dtest = xgb.DMatrix(data= X_test, label= y_test)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(dtrain)</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;xgboost.core.DMatrix object at 0x7faf7bee2490&gt;
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">params = &#123;</span><br><span class="line">    <span class="string">&#x27;max_depth&#x27;</span>:<span class="number">3</span>,<span class="comment">#트리 깊이는 3</span></span><br><span class="line">    <span class="string">&#x27;n_estimator&#x27;</span>:<span class="number">100</span>,<span class="comment">#100번 심기-&gt;결정트리갯수</span></span><br><span class="line">    <span class="string">&#x27;eta&#x27;</span>:<span class="number">0.1</span>,</span><br><span class="line">    <span class="string">&#x27;objectice&#x27;</span> : <span class="string">&#x27;binary:logistic&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">num_rounds = <span class="number">400</span></span><br><span class="line"></span><br><span class="line">w_list = [(dtrain, <span class="string">&#x27;train&#x27;</span>), (dtest, <span class="string">&#x27;test&#x27;</span>)]</span><br><span class="line">xgb_ml = xgb.train(params = params, </span><br><span class="line">                   dtrain = dtrain, </span><br><span class="line">                   num_boost_round = <span class="number">400</span>, <span class="comment">#경사하강법의 에포크(가중치를 계속 줌)</span></span><br><span class="line">                   early_stopping_rounds = <span class="number">100</span>, <span class="comment"># 100번하고 효과 없으면 멈춰라</span></span><br><span class="line">                   evals = w_list)</span><br></pre></td></tr></table></figure>
+
+<pre><code>[0]	train-rmse:0.487916	test-rmse:0.490147
+Multiple eval metrics have been passed: &#39;test-rmse&#39; will be used for early stopping.
+
+Will train until test-rmse hasn&#39;t improved in 100 rounds.
+[1]	train-rmse:0.477856	test-rmse:0.482183
+[2]	train-rmse:0.470061	test-rmse:0.47532
+[3]	train-rmse:0.462181	test-rmse:0.470924
+[4]	train-rmse:0.455721	test-rmse:0.466351
+[5]	train-rmse:0.450355	test-rmse:0.462927
+[6]	train-rmse:0.445684	test-rmse:0.459554
+[7]	train-rmse:0.441298	test-rmse:0.458577
+[8]	train-rmse:0.437792	test-rmse:0.456831
+[9]	train-rmse:0.434393	test-rmse:0.456526
+[10]	train-rmse:0.431725	test-rmse:0.455362
+[11]	train-rmse:0.428592	test-rmse:0.454746
+[12]	train-rmse:0.426484	test-rmse:0.454121
+[13]	train-rmse:0.423993	test-rmse:0.453891
+[14]	train-rmse:0.421947	test-rmse:0.453115
+[15]	train-rmse:0.42036	test-rmse:0.452995
+[16]	train-rmse:0.418511	test-rmse:0.452991
+[17]	train-rmse:0.417025	test-rmse:0.452558
+[18]	train-rmse:0.415955	test-rmse:0.45293
+[19]	train-rmse:0.41396	test-rmse:0.453367
+[20]	train-rmse:0.413199	test-rmse:0.453852
+[21]	train-rmse:0.412091	test-rmse:0.453547
+[22]	train-rmse:0.410501	test-rmse:0.454099
+[23]	train-rmse:0.409461	test-rmse:0.453524
+[24]	train-rmse:0.408469	test-rmse:0.453724
+[25]	train-rmse:0.407781	test-rmse:0.454117
+[26]	train-rmse:0.406954	test-rmse:0.454325
+[27]	train-rmse:0.405709	test-rmse:0.454997
+[28]	train-rmse:0.405121	test-rmse:0.455544
+[29]	train-rmse:0.40445	test-rmse:0.455746
+[30]	train-rmse:0.403643	test-rmse:0.45576
+[31]	train-rmse:0.403092	test-rmse:0.45603
+[32]	train-rmse:0.40252	test-rmse:0.456502
+[33]	train-rmse:0.401617	test-rmse:0.456903
+[34]	train-rmse:0.401175	test-rmse:0.457341
+[35]	train-rmse:0.400151	test-rmse:0.458455
+[36]	train-rmse:0.399748	test-rmse:0.458725
+[37]	train-rmse:0.398984	test-rmse:0.45933
+[38]	train-rmse:0.3982	test-rmse:0.459086
+[39]	train-rmse:0.397529	test-rmse:0.459736
+[40]	train-rmse:0.39734	test-rmse:0.460037
+[41]	train-rmse:0.396627	test-rmse:0.460473
+[42]	train-rmse:0.396461	test-rmse:0.460603
+[43]	train-rmse:0.395536	test-rmse:0.460408
+[44]	train-rmse:0.395255	test-rmse:0.460791
+[45]	train-rmse:0.394568	test-rmse:0.461165
+[46]	train-rmse:0.39406	test-rmse:0.461553
+[47]	train-rmse:0.39335	test-rmse:0.461595
+[48]	train-rmse:0.393206	test-rmse:0.461718
+[49]	train-rmse:0.392991	test-rmse:0.462002
+[50]	train-rmse:0.392352	test-rmse:0.461921
+[51]	train-rmse:0.391973	test-rmse:0.462235
+[52]	train-rmse:0.391844	test-rmse:0.462413
+[53]	train-rmse:0.391345	test-rmse:0.462504
+[54]	train-rmse:0.391184	test-rmse:0.462824
+[55]	train-rmse:0.391068	test-rmse:0.462939
+[56]	train-rmse:0.390596	test-rmse:0.462162
+[57]	train-rmse:0.390164	test-rmse:0.462743
+[58]	train-rmse:0.389861	test-rmse:0.463045
+[59]	train-rmse:0.389441	test-rmse:0.462628
+[60]	train-rmse:0.389338	test-rmse:0.462737
+[61]	train-rmse:0.388745	test-rmse:0.462943
+[62]	train-rmse:0.388405	test-rmse:0.462691
+[63]	train-rmse:0.388277	test-rmse:0.463041
+[64]	train-rmse:0.387828	test-rmse:0.463243
+[65]	train-rmse:0.387614	test-rmse:0.463214
+[66]	train-rmse:0.387088	test-rmse:0.463584
+[67]	train-rmse:0.386906	test-rmse:0.463627
+[68]	train-rmse:0.386444	test-rmse:0.463517
+[69]	train-rmse:0.385685	test-rmse:0.463735
+[70]	train-rmse:0.385353	test-rmse:0.463113
+[71]	train-rmse:0.384828	test-rmse:0.463005
+[72]	train-rmse:0.38444	test-rmse:0.462966
+[73]	train-rmse:0.383198	test-rmse:0.462825
+[74]	train-rmse:0.382841	test-rmse:0.462947
+[75]	train-rmse:0.382416	test-rmse:0.463253
+[76]	train-rmse:0.381966	test-rmse:0.462963
+[77]	train-rmse:0.381655	test-rmse:0.463399
+[78]	train-rmse:0.381399	test-rmse:0.463326
+[79]	train-rmse:0.380593	test-rmse:0.463278
+[80]	train-rmse:0.380329	test-rmse:0.463051
+[81]	train-rmse:0.380233	test-rmse:0.46316
+[82]	train-rmse:0.379942	test-rmse:0.463234
+[83]	train-rmse:0.379686	test-rmse:0.463517
+[84]	train-rmse:0.37893	test-rmse:0.463051
+[85]	train-rmse:0.37884	test-rmse:0.463287
+[86]	train-rmse:0.378756	test-rmse:0.463389
+[87]	train-rmse:0.378501	test-rmse:0.463446
+[88]	train-rmse:0.378011	test-rmse:0.463085
+[89]	train-rmse:0.377178	test-rmse:0.46281
+[90]	train-rmse:0.376872	test-rmse:0.462851
+[91]	train-rmse:0.376563	test-rmse:0.46331
+[92]	train-rmse:0.376317	test-rmse:0.463088
+[93]	train-rmse:0.376049	test-rmse:0.463515
+[94]	train-rmse:0.375914	test-rmse:0.463486
+[95]	train-rmse:0.375643	test-rmse:0.463194
+[96]	train-rmse:0.375378	test-rmse:0.463459
+[97]	train-rmse:0.375145	test-rmse:0.46375
+[98]	train-rmse:0.37453	test-rmse:0.463309
+[99]	train-rmse:0.374021	test-rmse:0.463431
+[100]	train-rmse:0.373289	test-rmse:0.463593
+[101]	train-rmse:0.373032	test-rmse:0.463798
+[102]	train-rmse:0.372814	test-rmse:0.464226
+[103]	train-rmse:0.372443	test-rmse:0.464454
+[104]	train-rmse:0.372217	test-rmse:0.464417
+[105]	train-rmse:0.372146	test-rmse:0.464435
+[106]	train-rmse:0.371726	test-rmse:0.464241
+[107]	train-rmse:0.37158	test-rmse:0.464172
+[108]	train-rmse:0.371396	test-rmse:0.464582
+[109]	train-rmse:0.371335	test-rmse:0.4646
+[110]	train-rmse:0.371127	test-rmse:0.464403
+[111]	train-rmse:0.371001	test-rmse:0.464328
+[112]	train-rmse:0.370928	test-rmse:0.464546
+[113]	train-rmse:0.370688	test-rmse:0.464457
+[114]	train-rmse:0.370634	test-rmse:0.464475
+[115]	train-rmse:0.370421	test-rmse:0.464819
+[116]	train-rmse:0.37007	test-rmse:0.46479
+[117]	train-rmse:0.369922	test-rmse:0.464798
+Stopping. Best iteration:
+[17]	train-rmse:0.417025	test-rmse:0.452558
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#평가</span></span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> accuracy_score</span><br><span class="line">pred_probs = xgb_ml.predict(dtest)</span><br><span class="line">y_pred = [<span class="number">1</span> <span class="keyword">if</span> x &gt; <span class="number">0.5</span> <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">for</span> x <span class="keyword">in</span> pred_probs]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 예측 라벨과 실제 라벨 사이의 정확도 측정</span></span><br><span class="line">accuracy_score(y_pred,y_test)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>0.6977611940298507
+</code></pre>
+<h3 id="XGBoost-Scikit-Learn-API방식"><a href="#XGBoost-Scikit-Learn-API방식" class="headerlink" title="XGBoost Scikit-Learn API방식"></a>XGBoost Scikit-Learn API방식</h3><ul>
+<li>application programming interface</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#xgb를 사용하지 않음(파이썬라이브러리를 가져오지 않고 사이킥런인공지능 사용)</span></span><br><span class="line"><span class="comment">#from sklearn.tree import DecisionTreeClassifier</span></span><br><span class="line"><span class="keyword">from</span> xgboost <span class="keyword">import</span> XGBClassifier <span class="comment"># 사이킥런 API</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#dt = DecisionTreeClassifier()</span></span><br><span class="line">params = &#123;</span><br><span class="line">    <span class="string">&#x27;max_depth&#x27;</span>:<span class="number">3</span>,<span class="comment">#트리 깊이는 3</span></span><br><span class="line">    <span class="string">&#x27;n_estimator&#x27;</span>:<span class="number">100</span>,<span class="comment">#100번 심기-&gt;결정트리갯수</span></span><br><span class="line">    <span class="string">&#x27;eta&#x27;</span>:<span class="number">0.1</span>,</span><br><span class="line">    <span class="string">&#x27;objectice&#x27;</span> : <span class="string">&#x27;binary:logistic&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">num_rounds = <span class="number">400</span></span><br><span class="line"></span><br><span class="line">xgb_model = XGBClassifier(objective= <span class="string">&#x27;binary:logistic&#x27;</span>,</span><br><span class="line">                          n_estimators=<span class="number">100</span>,</span><br><span class="line">                          max_depth=<span class="number">3</span>,</span><br><span class="line">                          learning_rate =<span class="number">0.1</span>,</span><br><span class="line">                          num_rounds = <span class="number">400</span>,<span class="comment">#이건 엑스지부스터랑 같은내용이지만 양식이 다름</span></span><br><span class="line">                          random_state = <span class="number">42</span>)</span><br><span class="line"></span><br><span class="line">w_list = [(X_train, y_train), (X_test, y_test)]</span><br><span class="line"></span><br><span class="line">xgb_model.fit(X_train, y_train, eval_set = w_list, eval_metric=<span class="string">&#x27;error&#x27;</span>, verbose=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">y_probas = xgb_model.predict_proba(X_test)</span><br><span class="line">y_pred = [<span class="number">1</span> <span class="keyword">if</span> x &gt; <span class="number">0.5</span> <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">for</span> x <span class="keyword">in</span> pred_probs]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 예측 라벨과 실제 라벨 사이의 정확도 측정</span></span><br><span class="line">accuracy_score(y_pred, y_test)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<pre><code>[0]	validation_0-error:0.260032	validation_1-error:0.302239
+[1]	validation_0-error:0.260032	validation_1-error:0.302239
+[2]	validation_0-error:0.260032	validation_1-error:0.302239
+[3]	validation_0-error:0.260032	validation_1-error:0.302239
+[4]	validation_0-error:0.260032	validation_1-error:0.302239
+[5]	validation_0-error:0.260032	validation_1-error:0.302239
+[6]	validation_0-error:0.260032	validation_1-error:0.302239
+[7]	validation_0-error:0.260032	validation_1-error:0.302239
+[8]	validation_0-error:0.260032	validation_1-error:0.302239
+[9]	validation_0-error:0.260032	validation_1-error:0.302239
+[10]	validation_0-error:0.260032	validation_1-error:0.302239
+[11]	validation_0-error:0.260032	validation_1-error:0.302239
+[12]	validation_0-error:0.260032	validation_1-error:0.302239
+[13]	validation_0-error:0.247191	validation_1-error:0.298507
+[14]	validation_0-error:0.247191	validation_1-error:0.298507
+[15]	validation_0-error:0.248796	validation_1-error:0.302239
+[16]	validation_0-error:0.248796	validation_1-error:0.302239
+[17]	validation_0-error:0.248796	validation_1-error:0.302239
+[18]	validation_0-error:0.248796	validation_1-error:0.302239
+[19]	validation_0-error:0.248796	validation_1-error:0.302239
+[20]	validation_0-error:0.248796	validation_1-error:0.302239
+[21]	validation_0-error:0.248796	validation_1-error:0.302239
+[22]	validation_0-error:0.248796	validation_1-error:0.302239
+[23]	validation_0-error:0.248796	validation_1-error:0.302239
+[24]	validation_0-error:0.248796	validation_1-error:0.302239
+[25]	validation_0-error:0.248796	validation_1-error:0.302239
+[26]	validation_0-error:0.248796	validation_1-error:0.302239
+[27]	validation_0-error:0.248796	validation_1-error:0.302239
+[28]	validation_0-error:0.247191	validation_1-error:0.302239
+[29]	validation_0-error:0.247191	validation_1-error:0.302239
+[30]	validation_0-error:0.247191	validation_1-error:0.302239
+[31]	validation_0-error:0.243981	validation_1-error:0.298507
+[32]	validation_0-error:0.247191	validation_1-error:0.302239
+[33]	validation_0-error:0.243981	validation_1-error:0.298507
+[34]	validation_0-error:0.243981	validation_1-error:0.298507
+[35]	validation_0-error:0.242376	validation_1-error:0.294776
+[36]	validation_0-error:0.24077	validation_1-error:0.294776
+[37]	validation_0-error:0.24077	validation_1-error:0.294776
+[38]	validation_0-error:0.24077	validation_1-error:0.294776
+[39]	validation_0-error:0.24077	validation_1-error:0.294776
+[40]	validation_0-error:0.24077	validation_1-error:0.294776
+[41]	validation_0-error:0.24077	validation_1-error:0.294776
+[42]	validation_0-error:0.24077	validation_1-error:0.294776
+[43]	validation_0-error:0.24077	validation_1-error:0.294776
+[44]	validation_0-error:0.24077	validation_1-error:0.302239
+[45]	validation_0-error:0.24077	validation_1-error:0.302239
+[46]	validation_0-error:0.24077	validation_1-error:0.302239
+[47]	validation_0-error:0.24077	validation_1-error:0.302239
+[48]	validation_0-error:0.24077	validation_1-error:0.302239
+[49]	validation_0-error:0.24077	validation_1-error:0.302239
+[50]	validation_0-error:0.24077	validation_1-error:0.302239
+[51]	validation_0-error:0.24077	validation_1-error:0.302239
+[52]	validation_0-error:0.23435	validation_1-error:0.302239
+[53]	validation_0-error:0.23435	validation_1-error:0.302239
+[54]	validation_0-error:0.232745	validation_1-error:0.298507
+[55]	validation_0-error:0.229535	validation_1-error:0.298507
+[56]	validation_0-error:0.229535	validation_1-error:0.298507
+[57]	validation_0-error:0.229535	validation_1-error:0.298507
+[58]	validation_0-error:0.229535	validation_1-error:0.298507
+[59]	validation_0-error:0.227929	validation_1-error:0.294776
+[60]	validation_0-error:0.227929	validation_1-error:0.298507
+[61]	validation_0-error:0.227929	validation_1-error:0.298507
+[62]	validation_0-error:0.227929	validation_1-error:0.298507
+[63]	validation_0-error:0.227929	validation_1-error:0.298507
+[64]	validation_0-error:0.227929	validation_1-error:0.298507
+[65]	validation_0-error:0.227929	validation_1-error:0.298507
+[66]	validation_0-error:0.227929	validation_1-error:0.298507
+[67]	validation_0-error:0.227929	validation_1-error:0.298507
+[68]	validation_0-error:0.227929	validation_1-error:0.298507
+[69]	validation_0-error:0.227929	validation_1-error:0.298507
+[70]	validation_0-error:0.227929	validation_1-error:0.298507
+[71]	validation_0-error:0.227929	validation_1-error:0.298507
+[72]	validation_0-error:0.227929	validation_1-error:0.302239
+[73]	validation_0-error:0.227929	validation_1-error:0.302239
+[74]	validation_0-error:0.229535	validation_1-error:0.30597
+[75]	validation_0-error:0.229535	validation_1-error:0.30597
+[76]	validation_0-error:0.229535	validation_1-error:0.30597
+[77]	validation_0-error:0.229535	validation_1-error:0.30597
+[78]	validation_0-error:0.229535	validation_1-error:0.30597
+[79]	validation_0-error:0.229535	validation_1-error:0.30597
+[80]	validation_0-error:0.229535	validation_1-error:0.30597
+[81]	validation_0-error:0.229535	validation_1-error:0.30597
+[82]	validation_0-error:0.229535	validation_1-error:0.30597
+[83]	validation_0-error:0.229535	validation_1-error:0.30597
+[84]	validation_0-error:0.229535	validation_1-error:0.30597
+[85]	validation_0-error:0.229535	validation_1-error:0.30597
+[86]	validation_0-error:0.229535	validation_1-error:0.30597
+[87]	validation_0-error:0.229535	validation_1-error:0.30597
+[88]	validation_0-error:0.229535	validation_1-error:0.30597
+[89]	validation_0-error:0.229535	validation_1-error:0.30597
+[90]	validation_0-error:0.229535	validation_1-error:0.30597
+[91]	validation_0-error:0.229535	validation_1-error:0.30597
+[92]	validation_0-error:0.229535	validation_1-error:0.30597
+[93]	validation_0-error:0.229535	validation_1-error:0.30597
+[94]	validation_0-error:0.227929	validation_1-error:0.313433
+[95]	validation_0-error:0.226324	validation_1-error:0.313433
+[96]	validation_0-error:0.223114	validation_1-error:0.317164
+[97]	validation_0-error:0.223114	validation_1-error:0.317164
+[98]	validation_0-error:0.223114	validation_1-error:0.317164
+[99]	validation_0-error:0.223114	validation_1-error:0.317164
+
+
+
+
+
+0.6977611940298507
+</code></pre>
+<h3 id="LightGBM-Rython-Wrapper방식"><a href="#LightGBM-Rython-Wrapper방식" class="headerlink" title="LightGBM Rython Wrapper방식"></a>LightGBM Rython Wrapper방식</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lightgbm <span class="keyword">as</span> lgb </span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split </span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> accuracy_score</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns </span><br><span class="line"></span><br><span class="line"><span class="comment"># tips 데이터셋 </span></span><br><span class="line">titanic = sns.load_dataset(<span class="string">&#x27;titanic&#x27;</span>)</span><br><span class="line"></span><br><span class="line">X = titanic[[<span class="string">&#x27;pclass&#x27;</span>, <span class="string">&#x27;parch&#x27;</span>, <span class="string">&#x27;fare&#x27;</span>]]</span><br><span class="line">y = titanic[<span class="string">&#x27;survived&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 훈련데이터, 테스트 데이터 분리</span></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, y, stratify = y, test_size = <span class="number">0.3</span>, random_state=<span class="number">42</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># XGBoost 코드와 유사하다. </span></span><br><span class="line">dtrain = lgb.Dataset(data = X_train, label = y_train)</span><br><span class="line">dtest = lgb.Dataset(data = X_test, label = y_test)</span><br><span class="line"></span><br><span class="line">params = &#123;<span class="string">&#x27;max_depth&#x27;</span>:<span class="number">3</span>,</span><br><span class="line">          <span class="string">&#x27;n_estimators&#x27;</span>:<span class="number">100</span>,</span><br><span class="line">          <span class="string">&#x27;learning_rate&#x27;</span>: <span class="number">0.1</span>, <span class="comment">#xgbooost eta</span></span><br><span class="line">          <span class="string">&#x27;objective&#x27;</span>:<span class="string">&#x27;binary&#x27;</span>,<span class="comment"># xgboost objectice&#x27; : &#x27;binary:logistic&#x27;</span></span><br><span class="line">          <span class="string">&#x27;metric&#x27;</span> : <span class="string">&#x27;binary_error&#x27;</span>, </span><br><span class="line">          <span class="string">&#x27;num_boost_round&#x27;</span> : <span class="number">400</span>, </span><br><span class="line">          <span class="string">&#x27;verbose&#x27;</span> : <span class="number">1</span>&#125; </span><br><span class="line"></span><br><span class="line">w_list = [dtrain, dtest]</span><br><span class="line">lgb_ml = lgb.train(params=params, train_set = dtrain,\</span><br><span class="line">                  early_stopping_rounds=<span class="number">100</span>, valid_sets= w_list)</span><br><span class="line"></span><br><span class="line">pred_probs = lgb_ml.predict(X_test)</span><br><span class="line">y_pred=[<span class="number">1</span> <span class="keyword">if</span> x &gt; <span class="number">0.5</span> <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">for</span> x <span class="keyword">in</span> pred_probs]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 예측 라벨과 실제 라벨 사이의 정확도 측정</span></span><br><span class="line">accuracy_score(y_pred, y_test)</span><br></pre></td></tr></table></figure>
+
+<pre><code>/usr/local/lib/python3.7/dist-packages/lightgbm/engine.py:118: UserWarning: Found `num_boost_round` in params. Will use it instead of argument
+  warnings.warn(&quot;Found `&#123;&#125;` in params. Will use it instead of argument&quot;.format(alias))
+
+
+[1]	training&#39;s binary_error: 0.383628	valid_1&#39;s binary_error: 0.384328
+Training until validation scores don&#39;t improve for 100 rounds.
+[2]	training&#39;s binary_error: 0.383628	valid_1&#39;s binary_error: 0.384328
+[3]	training&#39;s binary_error: 0.354735	valid_1&#39;s binary_error: 0.369403
+[4]	training&#39;s binary_error: 0.29695	valid_1&#39;s binary_error: 0.354478
+[5]	training&#39;s binary_error: 0.272873	valid_1&#39;s binary_error: 0.33209
+[6]	training&#39;s binary_error: 0.272873	valid_1&#39;s binary_error: 0.33209
+[7]	training&#39;s binary_error: 0.269663	valid_1&#39;s binary_error: 0.317164
+[8]	training&#39;s binary_error: 0.269663	valid_1&#39;s binary_error: 0.317164
+[9]	training&#39;s binary_error: 0.264848	valid_1&#39;s binary_error: 0.309701
+[10]	training&#39;s binary_error: 0.269663	valid_1&#39;s binary_error: 0.309701
+[11]	training&#39;s binary_error: 0.264848	valid_1&#39;s binary_error: 0.309701
+[12]	training&#39;s binary_error: 0.264848	valid_1&#39;s binary_error: 0.309701
+[13]	training&#39;s binary_error: 0.264848	valid_1&#39;s binary_error: 0.309701
+[14]	training&#39;s binary_error: 0.264848	valid_1&#39;s binary_error: 0.309701
+[15]	training&#39;s binary_error: 0.264848	valid_1&#39;s binary_error: 0.309701
+[16]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[17]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[18]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[19]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[20]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[21]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[22]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[23]	training&#39;s binary_error: 0.271268	valid_1&#39;s binary_error: 0.313433
+[24]	training&#39;s binary_error: 0.258427	valid_1&#39;s binary_error: 0.309701
+[25]	training&#39;s binary_error: 0.258427	valid_1&#39;s binary_error: 0.309701
+[26]	training&#39;s binary_error: 0.258427	valid_1&#39;s binary_error: 0.309701
+[27]	training&#39;s binary_error: 0.258427	valid_1&#39;s binary_error: 0.309701
+[28]	training&#39;s binary_error: 0.258427	valid_1&#39;s binary_error: 0.309701
+[29]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.309701
+[30]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.309701
+[31]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.309701
+[32]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.309701
+[33]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.317164
+[34]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.317164
+[35]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.317164
+[36]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.309701
+[37]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.317164
+[38]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.317164
+[39]	training&#39;s binary_error: 0.248796	valid_1&#39;s binary_error: 0.309701
+[40]	training&#39;s binary_error: 0.248796	valid_1&#39;s binary_error: 0.313433
+[41]	training&#39;s binary_error: 0.248796	valid_1&#39;s binary_error: 0.313433
+[42]	training&#39;s binary_error: 0.248796	valid_1&#39;s binary_error: 0.313433
+[43]	training&#39;s binary_error: 0.248796	valid_1&#39;s binary_error: 0.313433
+[44]	training&#39;s binary_error: 0.248796	valid_1&#39;s binary_error: 0.313433
+[45]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[46]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[47]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[48]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[49]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[50]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[51]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[52]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[53]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[54]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[55]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[56]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[57]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[58]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[59]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[60]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[61]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[62]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[63]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[64]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[65]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[66]	training&#39;s binary_error: 0.243981	valid_1&#39;s binary_error: 0.309701
+[67]	training&#39;s binary_error: 0.23435	valid_1&#39;s binary_error: 0.309701
+[68]	training&#39;s binary_error: 0.23435	valid_1&#39;s binary_error: 0.309701
+[69]	training&#39;s binary_error: 0.23435	valid_1&#39;s binary_error: 0.309701
+[70]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[71]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[72]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[73]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[74]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[75]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[76]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[77]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[78]	training&#39;s binary_error: 0.232745	valid_1&#39;s binary_error: 0.313433
+[79]	training&#39;s binary_error: 0.232745	valid_1&#39;s binary_error: 0.313433
+[80]	training&#39;s binary_error: 0.232745	valid_1&#39;s binary_error: 0.313433
+[81]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[82]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[83]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[84]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[85]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[86]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[87]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[88]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[89]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[90]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[91]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[92]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[93]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[94]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[95]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[96]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[97]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[98]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[99]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.317164
+[100]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[101]	training&#39;s binary_error: 0.23114	valid_1&#39;s binary_error: 0.30597
+[102]	training&#39;s binary_error: 0.23114	valid_1&#39;s binary_error: 0.30597
+[103]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[104]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.317164
+[105]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.317164
+[106]	training&#39;s binary_error: 0.224719	valid_1&#39;s binary_error: 0.313433
+[107]	training&#39;s binary_error: 0.224719	valid_1&#39;s binary_error: 0.317164
+[108]	training&#39;s binary_error: 0.224719	valid_1&#39;s binary_error: 0.317164
+[109]	training&#39;s binary_error: 0.224719	valid_1&#39;s binary_error: 0.317164
+[110]	training&#39;s binary_error: 0.224719	valid_1&#39;s binary_error: 0.317164
+[111]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[112]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[113]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[114]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[115]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[116]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[117]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[118]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[119]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[120]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[121]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[122]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[123]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[124]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[125]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[126]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[127]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[128]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[129]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[130]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[131]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[132]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[133]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[134]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[135]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[136]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[137]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.309701
+[138]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.309701
+[139]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[140]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[141]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[142]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[143]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[144]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.320896
+[145]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[146]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.313433
+[147]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.313433
+[148]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.313433
+[149]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.313433
+[150]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[151]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[152]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.313433
+[153]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[154]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[155]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[156]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[157]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[158]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[159]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[160]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[161]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[162]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[163]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[164]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[165]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[166]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[167]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[168]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[169]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[170]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[171]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[172]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[173]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[174]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[175]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[176]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[177]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.328358
+[178]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.328358
+[179]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.328358
+[180]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.328358
+[181]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.328358
+[182]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[183]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[184]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[185]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[186]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[187]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[188]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[189]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[190]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[191]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[192]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[193]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[194]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[195]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[196]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[197]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[198]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[199]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[200]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[201]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+Early stopping, best iteration is:
+[101]	training&#39;s binary_error: 0.23114	valid_1&#39;s binary_error: 0.30597
+
+
+
+
+
+0.6940298507462687
+</code></pre>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://lightgbm.readthedocs.io/en/latest/Parameters.html">https://lightgbm.readthedocs.io/en/latest/Parameters.html</a></li>
+<li>파라메터를 보고 할 것</li>
+</ul>
+<h3 id="LightGBM-Scikit-Learn-API방식"><a href="#LightGBM-Scikit-Learn-API방식" class="headerlink" title="LightGBM Scikit-Learn API방식"></a>LightGBM Scikit-Learn API방식</h3><ul>
+<li>application programming interface</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> lightgbm <span class="keyword">import</span> LGBMClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> accuracy_score</span><br><span class="line"></span><br><span class="line"><span class="comment"># model </span></span><br><span class="line">w_list = [dtrain, dtest]</span><br><span class="line">model = LGBMClassifier(objective = <span class="string">&#x27;binary&#x27;</span>, </span><br><span class="line">                       metric = <span class="string">&#x27;binary_error&#x27;</span>,</span><br><span class="line">                       n_estimators=<span class="number">100</span>, </span><br><span class="line">                       learning_rate=<span class="number">0.1</span>, </span><br><span class="line">                       max_depth=<span class="number">3</span>, </span><br><span class="line">                       num_boost_round = <span class="number">400</span>,</span><br><span class="line">                       random_state = <span class="number">32</span>)</span><br><span class="line">model.fit(X_train, </span><br><span class="line">          y_train, </span><br><span class="line">          eval_set = [(X_train, y_train), (X_test, y_test)], </span><br><span class="line">          verbose=<span class="number">1</span>,</span><br><span class="line">          early_stopping_rounds = <span class="number">100</span>)</span><br><span class="line">y_probas = model.predict_proba(X_test) </span><br><span class="line">y_pred=[<span class="number">1</span> <span class="keyword">if</span> x &gt; <span class="number">0.5</span> <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">for</span> x <span class="keyword">in</span> y_probas[:, <span class="number">1</span>]] <span class="comment"># 예측 라벨(0과 1로 예측)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 예측 라벨과 실제 라벨 사이의 정확도 측정</span></span><br><span class="line">accuracy_score(y_pred, y_test)</span><br></pre></td></tr></table></figure>
+
+<pre><code>[1]	training&#39;s binary_error: 0.383628	valid_1&#39;s binary_error: 0.384328
+Training until validation scores don&#39;t improve for 100 rounds.
+[2]	training&#39;s binary_error: 0.383628	valid_1&#39;s binary_error: 0.384328
+[3]	training&#39;s binary_error: 0.354735	valid_1&#39;s binary_error: 0.369403
+[4]	training&#39;s binary_error: 0.29695	valid_1&#39;s binary_error: 0.354478
+[5]	training&#39;s binary_error: 0.272873	valid_1&#39;s binary_error: 0.33209
+[6]	training&#39;s binary_error: 0.272873	valid_1&#39;s binary_error: 0.33209
+[7]	training&#39;s binary_error: 0.269663	valid_1&#39;s binary_error: 0.317164
+[8]	training&#39;s binary_error: 0.269663	valid_1&#39;s binary_error: 0.317164
+[9]	training&#39;s binary_error: 0.264848	valid_1&#39;s binary_error: 0.309701
+[10]	training&#39;s binary_error: 0.269663	valid_1&#39;s binary_error: 0.309701
+[11]	training&#39;s binary_error: 0.264848	valid_1&#39;s binary_error: 0.309701
+[12]	training&#39;s binary_error: 0.264848	valid_1&#39;s binary_error: 0.309701
+[13]	training&#39;s binary_error: 0.264848	valid_1&#39;s binary_error: 0.309701
+[14]	training&#39;s binary_error: 0.264848	valid_1&#39;s binary_error: 0.309701
+[15]	training&#39;s binary_error: 0.264848	valid_1&#39;s binary_error: 0.309701
+[16]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[17]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[18]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[19]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[20]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[21]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[22]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[23]	training&#39;s binary_error: 0.271268	valid_1&#39;s binary_error: 0.313433
+[24]	training&#39;s binary_error: 0.258427	valid_1&#39;s binary_error: 0.309701
+[25]	training&#39;s binary_error: 0.258427	valid_1&#39;s binary_error: 0.309701
+[26]	training&#39;s binary_error: 0.258427	valid_1&#39;s binary_error: 0.309701
+[27]	training&#39;s binary_error: 0.258427	valid_1&#39;s binary_error: 0.309701
+[28]	training&#39;s binary_error: 0.258427	valid_1&#39;s binary_error: 0.309701
+[29]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.309701
+[30]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.309701
+[31]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.309701
+[32]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.309701
+[33]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.317164
+[34]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.317164
+[35]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.317164
+[36]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.309701
+[37]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.317164
+[38]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.317164
+[39]	training&#39;s binary_error: 0.248796	valid_1&#39;s binary_error: 0.309701
+[40]	training&#39;s binary_error: 0.248796	valid_1&#39;s binary_error: 0.313433
+[41]	training&#39;s binary_error: 0.248796	valid_1&#39;s binary_error: 0.313433
+[42]	training&#39;s binary_error: 0.248796	valid_1&#39;s binary_error: 0.313433
+[43]	training&#39;s binary_error: 0.248796	valid_1&#39;s binary_error: 0.313433
+[44]	training&#39;s binary_error: 0.248796	valid_1&#39;s binary_error: 0.313433
+[45]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[46]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[47]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[48]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[49]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[50]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[51]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[52]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[53]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[54]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[55]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[56]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[57]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[58]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[59]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[60]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[61]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[62]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[63]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[64]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[65]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[66]	training&#39;s binary_error: 0.243981	valid_1&#39;s binary_error: 0.309701
+[67]	training&#39;s binary_error: 0.23435	valid_1&#39;s binary_error: 0.309701
+[68]	training&#39;s binary_error: 0.23435	valid_1&#39;s binary_error: 0.309701
+[69]	training&#39;s binary_error: 0.23435	valid_1&#39;s binary_error: 0.309701
+[70]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[71]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[72]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[73]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[74]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[75]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[76]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[77]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[78]	training&#39;s binary_error: 0.232745	valid_1&#39;s binary_error: 0.313433
+[79]	training&#39;s binary_error: 0.232745	valid_1&#39;s binary_error: 0.313433
+[80]	training&#39;s binary_error: 0.232745	valid_1&#39;s binary_error: 0.313433
+[81]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[82]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[83]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[84]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[85]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[86]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[87]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[88]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[89]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[90]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[91]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[92]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[93]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[94]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[95]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[96]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[97]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[98]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[99]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.317164
+[100]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[101]	training&#39;s binary_error: 0.23114	valid_1&#39;s binary_error: 0.30597
+[102]	training&#39;s binary_error: 0.23114	valid_1&#39;s binary_error: 0.30597
+[103]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[104]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.317164
+[105]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.317164
+[106]	training&#39;s binary_error: 0.224719	valid_1&#39;s binary_error: 0.313433
+[107]	training&#39;s binary_error: 0.224719	valid_1&#39;s binary_error: 0.317164
+[108]	training&#39;s binary_error: 0.224719	valid_1&#39;s binary_error: 0.317164
+[109]	training&#39;s binary_error: 0.224719	valid_1&#39;s binary_error: 0.317164
+[110]	training&#39;s binary_error: 0.224719	valid_1&#39;s binary_error: 0.317164
+[111]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[112]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[113]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[114]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[115]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[116]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[117]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[118]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[119]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[120]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[121]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[122]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[123]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[124]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[125]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[126]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[127]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[128]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[129]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[130]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[131]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[132]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[133]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[134]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[135]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[136]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[137]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.309701
+[138]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.309701
+[139]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[140]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[141]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[142]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[143]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[144]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.320896
+[145]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[146]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.313433
+[147]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.313433
+[148]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.313433
+[149]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.313433
+[150]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[151]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[152]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.313433
+[153]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[154]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[155]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[156]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[157]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[158]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[159]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[160]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[161]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[162]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[163]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[164]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[165]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[166]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[167]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[168]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[169]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[170]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[171]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[172]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[173]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[174]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[175]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[176]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[177]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.328358
+[178]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.328358
+[179]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.328358
+[180]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.328358
+[181]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.328358
+[182]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[183]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[184]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[185]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[186]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[187]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[188]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[189]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[190]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[191]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[192]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[193]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[194]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[195]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[196]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[197]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[198]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[199]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[200]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[201]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+Early stopping, best iteration is:
+[101]	training&#39;s binary_error: 0.23114	valid_1&#39;s binary_error: 0.30597
+
+
+/usr/local/lib/python3.7/dist-packages/lightgbm/engine.py:118: UserWarning: Found `num_boost_round` in params. Will use it instead of argument
+  warnings.warn(&quot;Found `&#123;&#125;` in params. Will use it instead of argument&quot;.format(alias))
+
+
+
+
+
+0.6940298507462687
+</code></pre>
+</div><div class="article-licensing box"><div class="licensing-title"><p><a href="https://westar99.github.io/2022/07/06/day0706/">https://westar99.github.io/2022/07/06/day0706/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>John Doe</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2022-07-06</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2022-07-06</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="notification is-danger">You need to set <code>install_url</code> to use ShareThis. Please set it in <code>_config.yml</code>.</div></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">Like this article? Support the author with</h3><div class="buttons is-centered"><a class="button donate" href="/" target="_blank" rel="noopener" data-type="afdian"><span class="icon is-small"><i class="fas fa-charging-station"></i></span><span>Afdian.net</span></a><a class="button donate" data-type="alipay"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>Alipay</span><span class="qrcode"><img src="/" alt="Alipay"></span></a><a class="button donate" href="/" target="_blank" rel="noopener" data-type="buymeacoffee"><span class="icon is-small"><i class="fas fa-coffee"></i></span><span>Buy me a coffee</span></a><a class="button donate" href="/" target="_blank" rel="noopener" data-type="patreon"><span class="icon is-small"><i class="fab fa-patreon"></i></span><span>Patreon</span></a><div class="notification is-danger">You forgot to set the <code>business</code> or <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.</div><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>Wechat</span><span class="qrcode"><img src="/" alt="Wechat"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2022/07/07/lecture_in_humanedu/"><i class="level-item fas fa-chevron-left"></i><span class="level-item"> </span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2022/07/05/day0705_1/"><span class="level-item"> </span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div class="notification is-danger">You forgot to set the <code>shortname</code> for Disqus. Please set it in <code>_config.yml</code>.</div></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="CHAI JE HYUNG"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">CHAI JE HYUNG</p><p class="is-size-6 is-block">GOD IS GOOD ALL THE TIME</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>SEOUL.KOREA</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">21</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/westar99" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/westar99"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://www.facebook.com/jehyung.chai"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-07T08:05:34.000Z">2022-07-07</time></p><p class="title"><a href="/2022/07/07/lecture_in_humanedu/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-06T07:38:20.000Z">2022-07-06</time></p><p class="title"><a href="/2022/07/06/day0706/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-05T07:00:28.539Z">2022-07-05</time></p><p class="title"><a href="/2022/07/05/day0705_1/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-05T07:00:04.000Z">2022-07-05</time></p><p class="title"><a href="/2022/07/05/day0705_2/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-04T08:11:36.000Z">2022-07-04</time></p><p class="title"><a href="/2022/07/04/day0704_2/"> </a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2022/07/"><span class="level-start"><span class="level-item">July 2022</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/06/"><span class="level-start"><span class="level-item">June 2022</span></span><span class="level-end"><span class="level-item tag">13</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="CHAI JEHYUNG" height="28"></a><p class="is-size-7"><span>&copy; 2022 John Doe</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

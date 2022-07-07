@@ -1,5 +1,584 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>CHAI JEHYUNG</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="CHAI JEHYUNG"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="CHAI JEHYUNG"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="CHAI JEHYUNG"><meta property="og:url" content="https://westar99.github.io/"><meta property="og:site_name" content="CHAI JEHYUNG"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://westar99.github.io/img/og_image.png"><meta property="article:author" content="John Doe"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://westar99.github.io"},"headline":"CHAI JEHYUNG","image":["https://westar99.github.io/img/og_image.png"],"author":{"@type":"Person","name":"John Doe"},"publisher":{"@type":"Organization","name":"CHAI JEHYUNG","logo":{"@type":"ImageObject","url":"https://westar99.github.io/img/logo.svg"}},"description":""}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="CHAI JEHYUNG" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-06-28T00:00:00.000Z" title="2022. 6. 28. 오전 9:00:00">2022-06-28</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-06-28T07:52:11.060Z" title="2022. 6. 28. 오후 4:52:11">2022-06-28</time></span><span class="level-item">12 minutes read (About 1826 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/06/28/day0628/">파이선 기초문법2+Numpy</a></h1><div class="content"><p>##복습-반복문 연습</p>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>CHAI JEHYUNG</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="CHAI JEHYUNG"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="CHAI JEHYUNG"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="CHAI JEHYUNG"><meta property="og:url" content="https://westar99.github.io/"><meta property="og:site_name" content="CHAI JEHYUNG"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://westar99.github.io/img/og_image.png"><meta property="article:author" content="John Doe"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://westar99.github.io"},"headline":"CHAI JEHYUNG","image":["https://westar99.github.io/img/og_image.png"],"author":{"@type":"Person","name":"John Doe"},"publisher":{"@type":"Organization","name":"CHAI JEHYUNG","logo":{"@type":"ImageObject","url":"https://westar99.github.io/img/logo.svg"}},"description":""}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="CHAI JEHYUNG" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-06-29T08:12:31.095Z" title="2022. 6. 29. 오후 5:12:31">2022-06-29</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-06-29T08:19:47.268Z" title="2022. 6. 29. 오후 5:19:47">2022-06-29</time></span><span class="level-item">4 minutes read (About 623 words)</span></div></div><div class="content"><p>title: ‘머신러닝’</p>
+<p>date: ‘2022-06-29 16:00’</p>
+<h2 id="파이썬-주요-라이브러리"><a href="#파이썬-주요-라이브러리" class="headerlink" title="파이썬 주요 라이브러리"></a>파이썬 주요 라이브러리</h2><ul>
+<li>Machine learning</li>
+</ul>
+<ul>
+<li>정형데이터 </li>
+<li>사이킷런(Scikit-Learn)</li>
+</ul>
+<ul>
+<li>Deep Learming</li>
+</ul>
+<ul>
+<li>비정형데이터</li>
+<li>TensorFlow(구글)vs Pytorch(페이스북)</li>
+<li>혼공머신은 텐서플로우</li>
+<li>실제 상용 서비스(텐서플로우) Vs R&amp;D(파이터치-&gt;넘파이와 비슷한 용어)</li>
+</ul>
+<h2 id="생선분류-p-45"><a href="#생선분류-p-45" class="headerlink" title="생선분류(p.45)"></a>생선분류(p.45)</h2><ul>
+<li>도미, 곤들매기, 농어 등등</li>
+<li>목표: 이생선들을 프록그램을 통해 분류한다</li>
+<li>30cm 이상이면 도미라고 알려줘라.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fish_length = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;길이의 숫자로 넣어주세요:&#x27;</span>))</span><br><span class="line"><span class="keyword">if</span> fish_length &gt;=<span class="number">30</span>:</span><br><span class="line">   <span class="built_in">print</span>(<span class="string">&quot;도미&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">   <span class="built_in">print</span>(<span class="string">&quot;몰라&quot;</span>) </span><br></pre></td></tr></table></figure>
+
+<pre><code>길이의 숫자로 넣어주세요:20
+몰라
+</code></pre>
+<ul>
+<li>도미데이터(p.47)</li>
+</ul>
+<h2 id="데이터-수집"><a href="#데이터-수집" class="headerlink" title="데이터 수집"></a>데이터 수집</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 도미 길이</span></span><br><span class="line">bream_length = [<span class="number">25.4</span>, <span class="number">26.3</span>, <span class="number">26.5</span>, <span class="number">29.0</span>, <span class="number">29.0</span>, <span class="number">29.7</span>, <span class="number">29.7</span>, <span class="number">30.0</span>, <span class="number">30.0</span>, <span class="number">30.7</span>, <span class="number">31.0</span>, <span class="number">31.0</span>, <span class="number">31.5</span>, <span class="number">32.0</span>, <span class="number">32.0</span>, <span class="number">32.0</span>, <span class="number">33.0</span>, <span class="number">33.0</span>, <span class="number">33.5</span>, <span class="number">33.5</span>, <span class="number">34.0</span>, <span class="number">34.0</span>, <span class="number">34.5</span>, <span class="number">35.0</span>, <span class="number">35.0</span>, <span class="number">35.0</span>, <span class="number">35.0</span>, <span class="number">36.0</span>, <span class="number">36.0</span>, <span class="number">37.0</span>, <span class="number">38.5</span>, <span class="number">38.5</span>, <span class="number">39.5</span>, <span class="number">41.0</span>, <span class="number">41.0</span>]</span><br><span class="line"><span class="comment"># 도미 무게</span></span><br><span class="line">bream_weight = [<span class="number">242.0</span>, <span class="number">290.0</span>, <span class="number">340.0</span>, <span class="number">363.0</span>, <span class="number">430.0</span>, <span class="number">450.0</span>, <span class="number">500.0</span>, <span class="number">390.0</span>, <span class="number">450.0</span>, <span class="number">500.0</span>, <span class="number">475.0</span>, <span class="number">500.0</span>, <span class="number">500.0</span>, <span class="number">340.0</span>, <span class="number">600.0</span>, <span class="number">600.0</span>, <span class="number">700.0</span>, <span class="number">700.0</span>, <span class="number">610.0</span>, <span class="number">650.0</span>, <span class="number">575.0</span>, <span class="number">685.0</span>, <span class="number">620.0</span>, <span class="number">680.0</span>, <span class="number">700.0</span>, <span class="number">725.0</span>, <span class="number">720.0</span>, <span class="number">714.0</span>, <span class="number">850.0</span>, <span class="number">1000.0</span>, <span class="number">920.0</span>, <span class="number">955.0</span>, <span class="number">925.0</span>, <span class="number">975.0</span>, <span class="number">950.0</span>]</span><br></pre></td></tr></table></figure>
+
+<h2 id="데이터-가공"><a href="#데이터-가공" class="headerlink" title="데이터 가공"></a>데이터 가공</h2><ul>
+<li>여기서는 생략</li>
+</ul>
+<h2 id="데이터-시각화"><a href="#데이터-시각화" class="headerlink" title="데이터 시각화"></a>데이터 시각화</h2><ul>
+<li>여러 인사이트를 확인하기 위해 시각화, 통계 수치 계산</li>
+<li>탐색적 자료 분석(EDA : Exploratory Data Analysis)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">plt.scatter(bream_length, bream_weight)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;length&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;weight&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/output_8_0.png" alt="png"></p>
+<ul>
+<li>파이썬 시각화는 객체 지향으로 한다.</li>
+<li>왜냐하면 좀 더 이쁘고 아름답게 다듬기 위해서</li>
+<li>캐글 시각화 참고할 때 아래와 같이 하는 사람이 많음</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">fig, ax = plt.subplots()</span><br><span class="line">ax.scatter(bream_length, bream_weight)</span><br><span class="line">ax.set_xlabel(<span class="string">&#x27;length&#x27;</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">&#x27;weight&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/output_10_0.png" alt="png"></p>
+<ul>
+<li>빙어 데이터 준비하기</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">smelt_length = [<span class="number">9.8</span>, <span class="number">10.5</span>, <span class="number">10.6</span>, <span class="number">11.0</span>, <span class="number">11.2</span>, <span class="number">11.3</span>, <span class="number">11.8</span>, <span class="number">11.8</span>, <span class="number">12.0</span>, <span class="number">12.2</span>, <span class="number">12.4</span>, <span class="number">13.0</span>, <span class="number">14.3</span>, <span class="number">15.0</span>]</span><br><span class="line">smelt_weight = [<span class="number">6.7</span>, <span class="number">7.5</span>, <span class="number">7.0</span>, <span class="number">9.7</span>, <span class="number">9.8</span>, <span class="number">8.7</span>, <span class="number">10.0</span>, <span class="number">9.9</span>, <span class="number">9.8</span>, <span class="number">12.2</span>, <span class="number">13.4</span>, <span class="number">12.2</span>, <span class="number">19.7</span>, <span class="number">19.9</span>]</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fig, ax = plt.subplots()</span><br><span class="line">ax.scatter(bream_length,bream_weight)</span><br><span class="line">ax.scatter(smelt_length,smelt_weight)</span><br><span class="line">ax.set_xlabel(<span class="string">&#x27;length&#x27;</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">&#x27;weight&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/images/output_10_0.png" alt="png"></p>
+<ul>
+<li>두개의 리스트 합치기</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">length = bream_length + smelt_length</span><br><span class="line">weight = bream_weight + smelt_weight</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>2차원 리스트로 만든다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fish_data = [[l,w] <span class="keyword">for</span> l,w <span class="keyword">in</span> <span class="built_in">zip</span>(length, weight)]</span><br><span class="line">fish_data [<span class="number">0</span>:<span class="number">5</span>] <span class="comment">#5개만 추출</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>[[25.4, 242.0], [26.3, 290.0], [26.5, 340.0], [29.0, 363.0], [29.0, 430.0]]
+</code></pre>
+<ul>
+<li>생선의 길이와 무게를 보고 빙어와 도미를 구분하고 싶다.</li>
+<li>라벨링을 해준다&#x3D;지도해준다&#x3D;지도학습</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fish_target = [<span class="number">1</span>]* <span class="number">35</span> + [<span class="number">0</span>]*<span class="number">14</span></span><br><span class="line"><span class="built_in">print</span>(fish_taget)</span><br></pre></td></tr></table></figure>
+
+<pre><code>[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br><span class="line"><span class="comment"># 클래스 인스턴스화</span></span><br><span class="line">kn = KNeighborsClassifier()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 모형학습</span></span><br><span class="line">kn.fit(fish_data, fish_target)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>KNeighborsClassifier()
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 예측 정확도</span></span><br><span class="line">kn.score(fish_data, fish_target)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>1.0
+</code></pre>
+<ul>
+<li>실제 예측을 해보자</li>
+<li>새로운 물고기 도착</li>
+</ul>
+<ul>
+<li>길이 :30 몸무게:600</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ac_length = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;물고기 길이를 입력하세요..&quot;</span>))</span><br><span class="line">ac_weight= <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;물고기 무게를 입력하세요..&quot;</span>))</span><br><span class="line">preds = <span class="built_in">int</span>(kn.predict([[ac_length,  ac_weight]]))</span><br><span class="line"><span class="built_in">print</span>(preds)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> preds == <span class="number">1</span>:</span><br><span class="line">   <span class="built_in">print</span>(<span class="string">&quot;도미&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">   <span class="built_in">print</span>(<span class="string">&quot;빙어&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>물고기 길이를 입력하세요..35
+물고기 무게를 입력하세요..100
+0
+빙어
+</code></pre>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-06-29T00:00:00.000Z" title="2022. 6. 29. 오전 9:00:00">2022-06-29</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-06-29T08:38:06.549Z" title="2022. 6. 29. 오후 5:38:06">2022-06-29</time></span><span class="level-item">8 minutes read (About 1261 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/06/29/day0629/">판다스</a></h1><div class="content"><h2 id="라이브러리-불러오기"><a href="#라이브러리-불러오기" class="headerlink" title="라이브러리 불러오기"></a>라이브러리 불러오기</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;pandas version:&quot;</span>,pd.__version__)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;numpy verson:&quot;</span>,np.__version__)</span><br></pre></td></tr></table></figure>
+
+<pre><code>pandas version: 1.3.5
+numpy verson: 1.21.6
+</code></pre>
+<h2 id="데이터-불러오기"><a href="#데이터-불러오기" class="headerlink" title="데이터 불러오기"></a>데이터 불러오기</h2><ul>
+<li>구글 드라이브에 있는 데이터를 불러올 때 데이터는 존재해야 함</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> google.colab <span class="keyword">import</span> drive</span><br><span class="line">drive.mount(<span class="string">&#x27;/content/drive&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>Drive already mounted at /content/drive; to attempt to forcibly remount, call drive.mount(&quot;/content/drive&quot;, force_remount=True).
+</code></pre>
+<ul>
+<li>레모네이드 데이터를 불렀는데 결측치가 있음.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DATA_PATH= <span class="string">&#x27;/content/drive/MyDrive/Colab Notebooks/Human_ai/Basic/Chapter 3. pandas/data/Lemonade2016.csv&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(DATA_PATH)</span><br><span class="line"></span><br><span class="line">lemonade  = pd.read_csv(DATA_PATH)</span><br><span class="line"></span><br><span class="line">lemonade.info()</span><br></pre></td></tr></table></figure>
+
+<pre><code>/content/drive/MyDrive/Colab Notebooks/Human_ai/Basic/Chapter 3. pandas/data/Lemonade2016.csv
+&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 32 entries, 0 to 31
+Data columns (total 7 columns):
+ #   Column       Non-Null Count  Dtype  
+---  ------       --------------  -----  
+ 0   Date         31 non-null     object 
+ 1   Location     32 non-null     object 
+ 2   Lemon        32 non-null     int64  
+ 3   Orange       32 non-null     int64  
+ 4   Temperature  32 non-null     int64  
+ 5   Leaflets     31 non-null     float64
+ 6   Price        32 non-null     float64
+dtypes: float64(2), int64(3), object(2)
+memory usage: 1.9+ KB
+</code></pre>
+<ul>
+<li>데이터 맛보기</li>
+</ul>
+<ul>
+<li>헤드 테일은 숫자를 안넣어주면 5개만 보임</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade.head())</span><br></pre></td></tr></table></figure>
+
+<pre><code>       Date Location  Lemon  Orange  Temperature  Leaflets  Price
+0  7/1/2016     Park     97      67           70      90.0   0.25
+1  7/2/2016     Park     98      67           72      90.0   0.25
+2  7/3/2016     Park    110      77           71     104.0   0.25
+3  7/4/2016    Beach    134      99           76      98.0   0.25
+4  7/5/2016    Beach    159     118           78     135.0   0.25
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade. tail())</span><br></pre></td></tr></table></figure>
+
+<pre><code>         Date Location  Lemon  Orange  Temperature  Leaflets  Price
+27  7/27/2016     Park    104      68           80      99.0   0.35
+28  7/28/2016     Park     96      63           82      90.0   0.35
+29  7/29/2016     Park    100      66           81      95.0   0.35
+30  7/30/2016    Beach     88      57           82      81.0   0.35
+31  7/31/2016    Beach     76      47           82      68.0   0.35
+</code></pre>
+<ul>
+<li>기술통계량 보는 함수</li>
+</ul>
+<ul>
+<li>describe()</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade.describe())</span><br></pre></td></tr></table></figure>
+
+<pre><code>            Lemon      Orange  Temperature    Leaflets      Price
+count   32.000000   32.000000    32.000000   31.000000  32.000000
+mean   116.156250   80.000000    78.968750  108.548387   0.354688
+std     25.823357   21.863211     4.067847   20.117718   0.113137
+min     71.000000   42.000000    70.000000   68.000000   0.250000
+25%     98.000000   66.750000    77.000000   90.000000   0.250000
+50%    113.500000   76.500000    80.500000  108.000000   0.350000
+75%    131.750000   95.000000    82.000000  124.000000   0.500000
+max    176.000000  129.000000    84.000000  158.000000   0.500000
+</code></pre>
+<ul>
+<li><ul>
+<li>레몬보다 오랜지가 표준편차가 작으니 판매차가 거의 없다.(leaflets전단지)</li>
+</ul>
+</li>
+<li><p>범주형 데이터 빈도수 구하기</p>
+</li>
+</ul>
+<ul>
+<li>데이터[‘컬럼’].갯수함수 -&gt; 시리즈 함수였다!!</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lemonade[<span class="string">&#x27;Location&#x27;</span>].value_counts()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>Beach    17
+Park     15
+Name: Location, dtype: int64
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(lemonade[<span class="string">&#x27;Location&#x27;</span>]))</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;class &#39;pandas.core.series.Series&#39;&gt;
+</code></pre>
+<h2 id="행과-열-다루기"><a href="#행과-열-다루기" class="headerlink" title="행과 열 다루기"></a>행과 열 다루기</h2><ul>
+<li>sold(판매량) 컬럼(&#x3D;피처&#x3D;feature)을 추가</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lemonade[<span class="string">&#x27;Sold&#x27;</span>] = <span class="number">0</span></span><br><span class="line"><span class="built_in">print</span>(lemonade.head(<span class="number">3</span>))</span><br></pre></td></tr></table></figure>
+
+<pre><code>       Date Location  Lemon  Orange  Temperature  Leaflets  Price  Sold
+0  7/1/2016     Park     97      67           70      90.0   0.25     0
+1  7/2/2016     Park     98      67           72      90.0   0.25     0
+2  7/3/2016     Park    110      77           71     104.0   0.25     0
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lemonade[<span class="string">&#x27;Sold&#x27;</span>] = lemonade[<span class="string">&#x27;Lemon&#x27;</span>] + lemonade[<span class="string">&#x27;Orange&#x27;</span>]</span><br><span class="line"><span class="built_in">print</span>(lemonade.head(<span class="number">3</span>))</span><br></pre></td></tr></table></figure>
+
+<pre><code>       Date Location  Lemon  Orange  Temperature  Leaflets  Price  Sold
+0  7/1/2016     Park     97      67           70      90.0   0.25   164
+1  7/2/2016     Park     98      67           72      90.0   0.25   165
+2  7/3/2016     Park    110      77           71     104.0   0.25   187
+</code></pre>
+<ul>
+<li>Revenue &#x3D; 단가 x 판매량</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lemonade[<span class="string">&#x27;Revenue&#x27;</span>] = <span class="number">0</span></span><br><span class="line"><span class="built_in">print</span>(lemonade[[<span class="string">&#x27;Sold&#x27;</span>,<span class="string">&#x27;Price&#x27;</span>]].head(<span class="number">3</span>))</span><br></pre></td></tr></table></figure>
+
+<pre><code>   Sold  Price
+0   164   0.25
+1   165   0.25
+2   187   0.25
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lemonade[<span class="string">&#x27;Revenue&#x27;</span>] = lemonade[<span class="string">&#x27;Price&#x27;</span>] * lemonade[<span class="string">&#x27;Sold&#x27;</span>]</span><br><span class="line"><span class="built_in">print</span>(lemonade[[<span class="string">&#x27;Revenue&#x27;</span>, <span class="string">&#x27;Price&#x27;</span>, <span class="string">&#x27;Sold&#x27;</span>]].head())</span><br></pre></td></tr></table></figure>
+
+<pre><code>   Revenue  Price  Sold
+0    41.00   0.25   164
+1    41.25   0.25   165
+2    46.75   0.25   187
+3    58.25   0.25   233
+4    69.25   0.25   277
+</code></pre>
+<ul>
+<li>drop 함수</li>
+</ul>
+<ul>
+<li>행은 axis&#x3D;1 열은 axis&#x3D;0 을 넣어줘야 한다</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#컬럼 제거</span></span><br><span class="line">col_drop = lemonade.drop(<span class="string">&#x27;Sold&#x27;</span>, axis=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(col_drop.head())</span><br></pre></td></tr></table></figure>
+
+<pre><code>       Date Location  Lemon  Orange  Temperature  Leaflets  Price  Revenue
+0  7/1/2016     Park     97      67           70      90.0   0.25    41.00
+1  7/2/2016     Park     98      67           72      90.0   0.25    41.25
+2  7/3/2016     Park    110      77           71     104.0   0.25    46.75
+3  7/4/2016    Beach    134      99           76      98.0   0.25    58.25
+4  7/5/2016    Beach    159     118           78     135.0   0.25    69.25
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#행 제거</span></span><br><span class="line">row_drop = lemonade.drop([<span class="number">0</span>,<span class="number">2</span>], axis =<span class="number">0</span>)</span><br><span class="line"><span class="built_in">print</span>(row_drop.head())</span><br></pre></td></tr></table></figure>
+
+<pre><code>       Date Location  Lemon  Orange  Temperature  Leaflets  Price  Sold  \
+1  7/2/2016     Park     98      67           72      90.0   0.25   165   
+3  7/4/2016    Beach    134      99           76      98.0   0.25   233   
+4  7/5/2016    Beach    159     118           78     135.0   0.25   277   
+5  7/6/2016    Beach    103      69           82      90.0   0.25   172   
+6  7/6/2016    Beach    103      69           82      90.0   0.25   172   
+
+   Revenue  
+1    41.25  
+3    58.25  
+4    69.25  
+5    43.00  
+6    43.00  
+</code></pre>
+<h2 id="데이터-인덱싱"><a href="#데이터-인덱싱" class="headerlink" title="데이터 인덱싱"></a>데이터 인덱싱</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade[<span class="number">4</span>:<span class="number">7</span>])</span><br></pre></td></tr></table></figure>
+
+<pre><code>       Date Location  Lemon  Orange  Temperature  Leaflets  Price  Sold  \
+4  7/5/2016    Beach    159     118           78     135.0   0.25   277   
+5  7/6/2016    Beach    103      69           82      90.0   0.25   172   
+6  7/6/2016    Beach    103      69           82      90.0   0.25   172   
+
+   Revenue  
+4    69.25  
+5    43.00  
+6    43.00  
+</code></pre>
+<ul>
+<li><ul>
+<li>행의 인덱스자체가 제거됨</li>
+</ul>
+</li>
+<li><p>특정 값만 추출하는데 함수filter를 사용할 수 있지만 조건식을 이용하는 것이 더 편하다.</p>
+</li>
+<li><p>참 거짓으로 구분한 뒤 참만을 뽑도록 한다.</p>
+</li>
+</ul>
+<p>lemonade[조건식]</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#데이터 [데이터 컬럼 == 특정값]</span></span><br><span class="line">lemonade_L=lemonade[lemonade[<span class="string">&#x27;Location&#x27;</span>] == <span class="string">&#x27;Beach&#x27;</span>]</span><br><span class="line"><span class="built_in">print</span>(lemonade_L)</span><br><span class="line"><span class="comment">#lemonade[&#x27;Location&#x27;] == &#x27;Beach&#x27;-&gt;참 거짓으로 구분한 뒤 참인 그 값(Beach)을 불러내면 lemonade[lemonade[&#x27;Location&#x27;] == &#x27;Beach&#x27;] 그값(Beach)만 나옴</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>         Date Location  Lemon  Orange  Temperature  Leaflets  Price  Sold  \
+3    7/4/2016    Beach    134      99           76      98.0   0.25   233   
+4    7/5/2016    Beach    159     118           78     135.0   0.25   277   
+5    7/6/2016    Beach    103      69           82      90.0   0.25   172   
+6    7/6/2016    Beach    103      69           82      90.0   0.25   172   
+7    7/7/2016    Beach    143     101           81     135.0   0.25   244   
+8         NaN    Beach    123      86           82     113.0   0.25   209   
+9    7/9/2016    Beach    134      95           80     126.0   0.25   229   
+10  7/10/2016    Beach    140      98           82     131.0   0.25   238   
+11  7/11/2016    Beach    162     120           83     135.0   0.25   282   
+12  7/12/2016    Beach    130      95           84      99.0   0.25   225   
+13  7/13/2016    Beach    109      75           77      99.0   0.25   184   
+14  7/14/2016    Beach    122      85           78     113.0   0.25   207   
+15  7/15/2016    Beach     98      62           75     108.0   0.50   160   
+16  7/16/2016    Beach     81      50           74      90.0   0.50   131   
+17  7/17/2016    Beach    115      76           77     126.0   0.50   191   
+30  7/30/2016    Beach     88      57           82      81.0   0.35   145   
+31  7/31/2016    Beach     76      47           82      68.0   0.35   123   
+
+    Revenue  
+3     58.25  
+4     69.25  
+5     43.00  
+6     43.00  
+7     61.00  
+8     52.25  
+9     57.25  
+10    59.50  
+11    70.50  
+12    56.25  
+13    46.00  
+14    51.75  
+15    80.00  
+16    65.50  
+17    95.50  
+30    50.75  
+31    43.05  
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade[lemonade[<span class="string">&#x27;Temperature&#x27;</span>] &gt;= <span class="number">80</span>])<span class="comment">#온도가 80이 넘는 것을 뽑아내라</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>         Date Location  Lemon  Orange  Temperature  Leaflets  Price  Sold  \
+5    7/6/2016    Beach    103      69           82      90.0   0.25   172   
+6    7/6/2016    Beach    103      69           82      90.0   0.25   172   
+7    7/7/2016    Beach    143     101           81     135.0   0.25   244   
+8         NaN    Beach    123      86           82     113.0   0.25   209   
+9    7/9/2016    Beach    134      95           80     126.0   0.25   229   
+10  7/10/2016    Beach    140      98           82     131.0   0.25   238   
+11  7/11/2016    Beach    162     120           83     135.0   0.25   282   
+12  7/12/2016    Beach    130      95           84      99.0   0.25   225   
+18  7/18/2016     Park    131      92           81     122.0   0.50   223   
+22  7/22/2016     Park    112      75           80     108.0   0.50   187   
+23  7/23/2016     Park    120      82           81     117.0   0.50   202   
+24  7/24/2016     Park    121      82           82     117.0   0.50   203   
+25  7/25/2016     Park    156     113           84     135.0   0.50   269   
+26  7/26/2016     Park    176     129           83     158.0   0.35   305   
+27  7/27/2016     Park    104      68           80      99.0   0.35   172   
+28  7/28/2016     Park     96      63           82      90.0   0.35   159   
+29  7/29/2016     Park    100      66           81      95.0   0.35   166   
+30  7/30/2016    Beach     88      57           82      81.0   0.35   145   
+31  7/31/2016    Beach     76      47           82      68.0   0.35   123   
+
+    Revenue  
+5     43.00  
+6     43.00  
+7     61.00  
+8     52.25  
+9     57.25  
+10    59.50  
+11    70.50  
+12    56.25  
+18   111.50  
+22    93.50  
+23   101.00  
+24   101.50  
+25   134.50  
+26   106.75  
+27    60.20  
+28    55.65  
+29    58.10  
+30    50.75  
+31    43.05  
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade[(lemonade[<span class="string">&#x27;Temperature&#x27;</span>] &gt;= <span class="number">80</span>) &amp; (lemonade[<span class="string">&#x27;Orange&#x27;</span>] &gt;= <span class="number">100</span>)]) <span class="comment">#lemonade[(조건식)&amp;(조건식2)]온도가 80넘고 오랜지가100이상인 것</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>         Date Location  Lemon  Orange  Temperature  Leaflets  Price  Sold  \
+7    7/7/2016    Beach    143     101           81     135.0   0.25   244   
+11  7/11/2016    Beach    162     120           83     135.0   0.25   282   
+25  7/25/2016     Park    156     113           84     135.0   0.50   269   
+26  7/26/2016     Park    176     129           83     158.0   0.35   305   
+
+    Revenue  
+7     61.00  
+11    70.50  
+25   134.50  
+26   106.75  
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade[(lemonade[<span class="string">&#x27;Temperature&#x27;</span>] &gt;= <span class="number">80</span>) &amp; (lemonade[<span class="string">&#x27;Orange&#x27;</span>] &gt;= <span class="number">100</span>) &amp; (lemonade[<span class="string">&#x27;Location&#x27;</span>] == <span class="string">&quot;Park&quot;</span>)])</span><br></pre></td></tr></table></figure>
+
+<pre><code>         Date Location  Lemon  Orange  Temperature  Leaflets  Price  Sold  \
+25  7/25/2016     Park    156     113           84     135.0   0.50   269   
+26  7/26/2016     Park    176     129           83     158.0   0.35   305   
+
+    Revenue  
+25   134.50  
+26   106.75  
+</code></pre>
+<h2 id="iloc와-loc의-차이"><a href="#iloc와-loc의-차이" class="headerlink" title="iloc와 loc의 차이"></a>iloc와 loc의 차이</h2><ul>
+<li>iloc는 인덱스의 “숫자”로 loc는 라벨의 “이름”으로 내용을 선택한다.</li>
+<li>loc가 사용하기 편하다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade.loc[lemonade[<span class="string">&#x27;Temperature&#x27;</span>] &gt;= <span class="number">80</span>,[<span class="string">&#x27;Date&#x27;</span>,<span class="string">&#x27;Sold&#x27;</span>]]) <span class="comment">#온도가 80이 넘는 것 중 라벨명이 날자와 판매량을 찾아라(중요)</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>         Date  Sold
+5    7/6/2016   172
+6    7/6/2016   172
+7    7/7/2016   244
+8         NaN   209
+9    7/9/2016   229
+10  7/10/2016   238
+11  7/11/2016   282
+12  7/12/2016   225
+18  7/18/2016   223
+22  7/22/2016   187
+23  7/23/2016   202
+24  7/24/2016   203
+25  7/25/2016   269
+26  7/26/2016   305
+27  7/27/2016   172
+28  7/28/2016   159
+29  7/29/2016   166
+30  7/30/2016   145
+31  7/31/2016   123
+</code></pre>
+<ul>
+<li>문법상의 차이 확인</li>
+</ul>
+<ul>
+<li>숫자(ilot)</li>
+<li>라벨(lot)&#x3D;글자 숫자 문자 동시</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade.iloc[<span class="number">0</span>:<span class="number">3</span>,<span class="number">0</span>:<span class="number">2</span>]) <span class="comment"># [행-인덱스번호부터 시작, 열]</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>       Date Location
+0  7/1/2016     Park
+1  7/2/2016     Park
+2  7/3/2016     Park
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade.loc[<span class="number">0</span>:<span class="number">2</span>,[<span class="string">&#x27;Date&#x27;</span>,<span class="string">&#x27;Location&#x27;</span>]])<span class="comment"># 똑같은 결과이지만 라벨은 행의 시작 위치 컬럼부터 시작</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>       Date Location
+0  7/1/2016     Park
+1  7/2/2016     Park
+2  7/3/2016     Park
+</code></pre>
+<h2 id="데이터-정렬"><a href="#데이터-정렬" class="headerlink" title="데이터 정렬"></a>데이터 정렬</h2><ul>
+<li>sort_values()</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#lemonade.head()</span></span><br><span class="line"><span class="built_in">print</span>(lemonade.sort_values(by=[<span class="string">&#x27;Revenue&#x27;</span>]).head(<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+
+<pre><code>         Date Location  Lemon  Orange  Temperature  Leaflets  Price  Sold  \
+0    7/1/2016     Park     97      67           70      90.0   0.25   164   
+1    7/2/2016     Park     98      67           72      90.0   0.25   165   
+6    7/6/2016    Beach    103      69           82      90.0   0.25   172   
+5    7/6/2016    Beach    103      69           82      90.0   0.25   172   
+31  7/31/2016    Beach     76      47           82      68.0   0.35   123   
+
+    Revenue  
+0     41.00  
+1     41.25  
+6     43.00  
+5     43.00  
+31    43.05  
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade[[<span class="string">&#x27;Date&#x27;</span>,<span class="string">&#x27;Temperature&#x27;</span>,<span class="string">&#x27;Revenue&#x27;</span>]].sort_values(by=[<span class="string">&#x27;Temperature&#x27;</span>,<span class="string">&#x27;Revenue&#x27;</span>]).head(<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+
+<pre><code>         Date  Temperature  Revenue
+0    7/1/2016           70    41.00
+20  7/20/2016           70    56.50
+2    7/3/2016           71    46.75
+1    7/2/2016           72    41.25
+16  7/16/2016           74    65.50
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade[[<span class="string">&#x27;Date&#x27;</span>,<span class="string">&#x27;Temperature&#x27;</span>,<span class="string">&#x27;Revenue&#x27;</span>]].sort_values(by=[<span class="string">&#x27;Temperature&#x27;</span>,<span class="string">&#x27;Revenue&#x27;</span>],ascending=[<span class="literal">True</span>,<span class="literal">False</span>]).head(<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+
+<pre><code>         Date  Temperature  Revenue
+20  7/20/2016           70    56.50
+0    7/1/2016           70    41.00
+2    7/3/2016           71    46.75
+1    7/2/2016           72    41.25
+16  7/16/2016           74    65.50
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade[[<span class="string">&#x27;Date&#x27;</span>,<span class="string">&#x27;Temperature&#x27;</span>,<span class="string">&#x27;Revenue&#x27;</span>]].sort_values(by=[<span class="string">&#x27;Temperature&#x27;</span>,<span class="string">&#x27;Revenue&#x27;</span>],ascending=[<span class="literal">False</span>,<span class="literal">True</span>]).head(<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+
+<pre><code>         Date  Temperature  Revenue
+12  7/12/2016           84    56.25
+25  7/25/2016           84   134.50
+11  7/11/2016           83    70.50
+26  7/26/2016           83   106.75
+5    7/6/2016           82    43.00
+</code></pre>
+<h2 id="Group-by"><a href="#Group-by" class="headerlink" title="Group by"></a>Group by</h2><ul>
+<li>cf)인덱스가 숫자에서 라벨로 바뀜</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">df = lemonade.groupby(by=<span class="string">&#x27;Location&#x27;</span>).count()</span><br><span class="line"><span class="built_in">print</span>(df)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(df))</span><br></pre></td></tr></table></figure>
+
+<pre><code>          Date  Lemon  Orange  Temperature  Leaflets  Price  Sold  Revenue
+Location                                                                  
+Beach       16     17      17           17        17     17    17       17
+Park        15     15      15           15        14     15    15       15
+
+&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df[[<span class="string">&#x27;Date&#x27;</span>,<span class="string">&#x27;Lemon&#x27;</span>]]</span><br><span class="line"><span class="built_in">print</span>(df[[<span class="string">&#x27;Date&#x27;</span>,<span class="string">&#x27;Lemon&#x27;</span>]])</span><br></pre></td></tr></table></figure>
+
+<pre><code>          Date  Lemon
+Location             
+Beach       16     17
+Park        15     15
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df.iloc[<span class="number">0</span>:<span class="number">1</span>,<span class="number">0</span>:<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
+
+<pre><code>          Date  Lemon
+Location             
+Beach       16     17
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df.loc[<span class="string">&#x27;Park&#x27;</span>, [<span class="string">&#x27;Date&#x27;</span>, <span class="string">&#x27;Lemon&#x27;</span>]])</span><br></pre></td></tr></table></figure>
+
+<pre><code>Date     15
+Lemon    15
+Name: Park, dtype: int64
+</code></pre>
+<ul>
+<li>간단한 피벗 테이블 만들기</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade.groupby(<span class="string">&#x27;Location&#x27;</span>)[<span class="string">&#x27;Revenue&#x27;</span>].agg([<span class="built_in">max</span>,<span class="built_in">min</span>,<span class="built_in">sum</span>,np.mean]))</span><br></pre></td></tr></table></figure>
+
+<pre><code>            max   min     sum       mean
+Location                                
+Beach      95.5  43.0  1002.8  58.988235
+Park      134.5  41.0  1178.2  78.546667
+</code></pre>
+<ul>
+<li>지역별로 매출액의 최대값, 최소값, 합계, 평균을 구한다.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade.groupby(<span class="string">&#x27;Location&#x27;</span>)[<span class="string">&#x27;Revenue&#x27;</span>,<span class="string">&#x27;Sold&#x27;</span>,<span class="string">&#x27;Temperature&#x27;</span>].agg([<span class="built_in">max</span>,<span class="built_in">min</span>,<span class="built_in">sum</span>,np.mean]))</span><br></pre></td></tr></table></figure>
+
+<pre><code>         Revenue                          Sold                         \
+             max   min     sum       mean  max  min   sum        mean   
+Location                                                                
+Beach       95.5  43.0  1002.8  58.988235  282  123  3422  201.294118   
+Park       134.5  41.0  1178.2  78.546667  305  113  2855  190.333333   
+
+         Temperature                       
+                 max min   sum       mean  
+Location                                   
+Beach             84  74  1355  79.705882  
+Park              84  70  1172  78.133333  
+
+
+/usr/local/lib/python3.7/dist-packages/ipykernel_launcher.py:1: FutureWarning: Indexing with multiple keys (implicitly converted to a tuple of keys) will be deprecated, use a list instead.
+  &quot;&quot;&quot;Entry point for launching an IPython kernel.
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade.groupby([<span class="string">&#x27;Location&#x27;</span>, <span class="string">&#x27;Price&#x27;</span>])[<span class="string">&#x27;Orange&#x27;</span>].agg([<span class="built_in">max</span>, <span class="built_in">min</span>, <span class="built_in">sum</span>, np.mean]))</span><br></pre></td></tr></table></figure>
+
+<pre><code>                max  min   sum       mean
+Location Price                           
+Beach    0.25   120   69  1110  92.500000
+         0.35    57   47   104  52.000000
+         0.50    76   50   188  62.666667
+Park     0.25    77   67   211  70.333333
+         0.35   129   63   326  81.500000
+         0.50   113   42   621  77.625000
+</code></pre>
+<p>&lt;–지역에 따라 오렌지의 단가별 최대판매량, 최소판매량, 총합, 평균</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-06-28T00:00:00.000Z" title="2022. 6. 28. 오전 9:00:00">2022-06-28</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-06-28T07:52:11.060Z" title="2022. 6. 28. 오후 4:52:11">2022-06-28</time></span><span class="level-item">12 minutes read (About 1826 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/06/28/day0628/">파이선 기초문법2+Numpy</a></h1><div class="content"><p>##복습-반복문 연습</p>
 <ul>
 <li>for loop and while loop</li>
 </ul>
@@ -1236,19 +1815,7 @@ g
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">library<span class="punctuation">(</span>ggplot2<span class="punctuation">)</span></span><br><span class="line">ggplot<span class="punctuation">(</span>data <span class="operator">=</span> iris<span class="punctuation">,</span> aes<span class="punctuation">(</span>x <span class="operator">=</span> Sepal.Length<span class="punctuation">,</span> </span><br><span class="line">                        y <span class="operator">=</span> Sepal.Width<span class="punctuation">)</span><span class="punctuation">)</span> <span class="operator">+</span> </span><br><span class="line">  geom_point<span class="punctuation">(</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
 
 <p><img src="/day0617_1_files/figure-html/unnamed-chunk-1-1.png"><!-- --></p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-06-20T00:00:00.000Z" title="2022. 6. 20. 오전 9:00:00">2022-06-20</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-06-20T08:13:56.524Z" title="2022. 6. 20. 오후 5:13:56">2022-06-20</time></span><span class="level-item">a few seconds read (About 86 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/06/20/test/">test</a></h1><div class="content"><p>##csv파일 불러오기</p>
-<ul>
-<li>csv파일을 불러옵니다</li>
-</ul>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mpg1 <span class="operator">&lt;-</span> read.csv<span class="punctuation">(</span><span class="string">&quot;mpg1.csv&quot;</span><span class="punctuation">)</span></span><br><span class="line">str<span class="punctuation">(</span>mpg1<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">## &#x27;data.frame&#x27;:	234 obs. of  5 variables:</span><br><span class="line">##  $ manufacturer: chr  &quot;audi&quot; &quot;audi&quot; &quot;audi&quot; &quot;audi&quot; ...</span><br><span class="line">##  $ trans       : chr  &quot;auto&quot; &quot;manual&quot; &quot;manual&quot; &quot;auto&quot; ...</span><br><span class="line">##  $ drv         : chr  &quot;f&quot; &quot;f&quot; &quot;f&quot; &quot;f&quot; ...</span><br><span class="line">##  $ cty         : int  18 21 20 21 16 18 18 18 16 20 ...</span><br><span class="line">##  $ hwy         : int  29 29 31 30 26 26 27 26 25 28 ...</span><br></pre></td></tr></table></figure>
-
-<p>##데이터 시각화 하기<br>-cty, hwy산점도를 그려본다</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">library<span class="punctuation">(</span>ggplot2<span class="punctuation">)</span></span><br><span class="line">ggplot<span class="punctuation">(</span>mpg1<span class="punctuation">,</span>aes<span class="punctuation">(</span>x <span class="operator">=</span>cty<span class="punctuation">,</span> y <span class="operator">=</span> hwy<span class="punctuation">)</span><span class="punctuation">)</span><span class="operator">+</span></span><br><span class="line">  geom_point<span class="punctuation">(</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/rmd_0620/unnamed-chunk-2-1.png"><!-- --></p>
-</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/">Previous</a></div><div class="pagination-next is-invisible is-hidden-mobile"><a href="/page/3/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><a class="pagination-link is-current" href="/page/2/">2</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="CHAI JE HYUNG"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">CHAI JE HYUNG</p><p class="is-size-6 is-block">GOD IS GOOD ALL THE TIME</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>SEOUL.KOREA</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">19</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/westar99" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/westar99"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://www.facebook.com/jehyung.chai"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-05T07:00:28.539Z">2022-07-05</time></p><p class="title"><a href="/2022/07/05/day0705_1/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-05T07:00:04.000Z">2022-07-05</time></p><p class="title"><a href="/2022/07/05/day0705_2/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-04T08:11:36.000Z">2022-07-04</time></p><p class="title"><a href="/2022/07/04/day0704_2/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-04T08:11:10.000Z">2022-07-04</time></p><p class="title"><a href="/2022/07/04/day0704_1/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-01T07:59:07.520Z">2022-07-01</time></p><p class="title"><a href="/2022/07/01/day0701_2/"> </a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2022/07/"><span class="level-start"><span class="level-item">July 2022</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/06/"><span class="level-start"><span class="level-item">June 2022</span></span><span class="level-end"><span class="level-item tag">13</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="CHAI JEHYUNG" height="28"></a><p class="is-size-7"><span>&copy; 2022 John Doe</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/">Previous</a></div><div class="pagination-next"><a href="/page/3/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><a class="pagination-link is-current" href="/page/2/">2</a></li><li><a class="pagination-link" href="/page/3/">3</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="CHAI JE HYUNG"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">CHAI JE HYUNG</p><p class="is-size-6 is-block">GOD IS GOOD ALL THE TIME</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>SEOUL.KOREA</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">21</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/westar99" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/westar99"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://www.facebook.com/jehyung.chai"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-07T08:05:34.000Z">2022-07-07</time></p><p class="title"><a href="/2022/07/07/lecture_in_humanedu/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-06T07:38:20.000Z">2022-07-06</time></p><p class="title"><a href="/2022/07/06/day0706/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-05T07:00:28.539Z">2022-07-05</time></p><p class="title"><a href="/2022/07/05/day0705_1/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-05T07:00:04.000Z">2022-07-05</time></p><p class="title"><a href="/2022/07/05/day0705_2/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-04T08:11:36.000Z">2022-07-04</time></p><p class="title"><a href="/2022/07/04/day0704_2/"> </a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2022/07/"><span class="level-start"><span class="level-item">July 2022</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/06/"><span class="level-start"><span class="level-item">June 2022</span></span><span class="level-end"><span class="level-item tag">13</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="CHAI JEHYUNG" height="28"></a><p class="is-size-7"><span>&copy; 2022 John Doe</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,
