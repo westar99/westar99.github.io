@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>CHAI JEHYUNG</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="CHAI JEHYUNG"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="CHAI JEHYUNG"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="title: ‘오라클SQL3’date: ‘2022-07-21 09:00’ – 기본집계함수 select count(*) from employees; select count(employee_id)from employees; –null은 카운트를 하지 않는다select count(department_id)from employees; –유일한 값만 조회selec"><meta property="og:type" content="blog"><meta property="og:title" content="CHAI JEHYUNG"><meta property="og:url" content="https://westar99.github.io/2022/07/21/day0721/"><meta property="og:site_name" content="CHAI JEHYUNG"><meta property="og:description" content="title: ‘오라클SQL3’date: ‘2022-07-21 09:00’ – 기본집계함수 select count(*) from employees; select count(employee_id)from employees; –null은 카운트를 하지 않는다select count(department_id)from employees; –유일한 값만 조회selec"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://westar99.github.io/img/og_image.png"><meta property="article:published_time" content="2022-07-21T08:02:00.887Z"><meta property="article:modified_time" content="2022-07-21T08:05:55.735Z"><meta property="article:author" content="John Doe"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://westar99.github.io/2022/07/21/day0721/"},"headline":"CHAI JEHYUNG","image":["https://westar99.github.io/img/og_image.png"],"datePublished":"2022-07-21T08:02:00.887Z","dateModified":"2022-07-21T08:05:55.735Z","author":{"@type":"Person","name":"John Doe"},"publisher":{"@type":"Organization","name":"CHAI JEHYUNG","logo":{"@type":"ImageObject","url":"https://westar99.github.io/img/logo.svg"}},"description":"title: ‘오라클SQL3’date: ‘2022-07-21 09:00’ – 기본집계함수 select count(*) from employees; select count(employee_id)from employees; –null은 카운트를 하지 않는다select count(department_id)from employees; –유일한 값만 조회selec"}</script><link rel="canonical" href="https://westar99.github.io/2022/07/21/day0721/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="CHAI JEHYUNG" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-07-21T08:02:00.887Z" title="2022. 7. 21. 오후 5:02:00">2022-07-21</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-07-21T08:05:55.735Z" title="2022. 7. 21. 오후 5:05:55">2022-07-21</time></span><span class="level-item">11 minutes read (About 1705 words)</span></div></div><div class="content"><hr>
+<h1 id="title-‘오라클SQL3’"><a href="#title-‘오라클SQL3’" class="headerlink" title="title: ‘오라클SQL3’"></a><strong>title: ‘오라클SQL3’</strong></h1><h1 id="date-‘2022-07-21-09-00’"><a href="#date-‘2022-07-21-09-00’" class="headerlink" title="date: ‘2022-07-21 09:00’"></a><strong>date: ‘2022-07-21 09:00’</strong></h1><hr>
+<p>– 기본집계함수</p>
+<p>select count(*) from employees;</p>
+<p>select count(employee_id)from employees;</p>
+<p>–null은 카운트를 하지 않는다<br>select count(department_id)from employees;</p>
+<p>–유일한 값만 조회<br>select count (distinct department_id)<br>from employees;</p>
+<p>select distinct department_id<br>from employees<br>order by 1;</p>
+<p>–기초통계량(p154)<br>–합계,평균,최소,최대,분산,표준편차<br>–SQL -&gt; 통계도구&amp;머신러닝, 데이터 과학도구로</p>
+<p>select sum(salary)<br>from employees;</p>
+<p>select sum(salary),sum(distinct salary)<br>from employees;</p>
+<p>select avg(salary),avg(distinct salary)<br>from employees;</p>
+<p>select min(salary),max(distinct salary)<br>from employees;</p>
+<p>–분산, 표준편차</p>
+<p>select variance(salary),stddev(salary)<br>from employees;</p>
+<p>–GROUPBY HAVING<br>–그전까지는 전체 데이터를 기준으로 집계</p>
+<p>SELECT department_id<br>        ,sum(salary)<br>from employees<br>group by department_id<br>order by department_id;</p>
+<p>select *<br>from KOR_LOAN_STATUS;–가계대출 단위는 십억</p>
+<p>select period<br>    ,region<br>    ,sum(loan_jan_amt)titl_jan–as 생략가능<br>from KOR_LOAN_STATUS<br>where period like ‘2013%’<br>group by period, REGION<br>order by period, region ;</p>
+<p>–2013년 11월 총잔액만 구한다.</p>
+<p>select<br>    period<br>    ,region<br>    ,sum(loan_jan_amt)as totl_jan<br>from KOR_LOAN_STATUS<br>where period &#x3D; ‘201311’<br>group by period,REGION –그룹바이에 계산식을 뺀 컬럼명이 다 들어가야 한다.<br>order by period,region;</p>
+<p>–2013년 11월 총잔액에서 10만단위 이상만 구한다.</p>
+<p>select<br>    period<br>    ,region<br>    ,sum(loan_jan_amt)as totl_jan<br>from KOR_LOAN_STATUS<br>where period &#x3D; ‘201311’<br>group by period,REGION<br>having sum(loan_jan_amt)&gt;100000<br>order by period,region;</p>
+<p>–ROLLUP절과 CUBE절</p>
+<p>select period, gubun,sum(loan_jan_amt)totl_jan<br>from KOR_LOAN_STATUS<br>where period like ‘2013%’<br>group by period,GUBUN<br>order by period;</p>
+<p>–롤업<br>–소그룹간의 합계를 계산하는 함수</p>
+<p>select period, gubun,sum(loan_jan_amt)totl_jan<br>from KOR_LOAN_STATUS<br>where period like ‘2013%’<br>group by rollup(period,GUBUN);</p>
+<p>–위치에 따라 결과값이 다르다.</p>
+<p>select period, gubun,sum(loan_jan_amt)totl_jan<br>from KOR_LOAN_STATUS<br>where period like ‘2013%’<br>group by rollup(period),GUBUN;</p>
+<p>– 큐브</p>
+<p>select period, gubun,sum(loan_jan_amt)totl_jan<br>from KOR_LOAN_STATUS<br>where period like ‘2013%’<br>group by cube(period,GUBUN);</p>
+<p>–집합연산자</p>
+<p>CREATE TABLE exp_goods_asia (<br>           country VARCHAR2(10),<br>           seq     NUMBER,<br>           goods   VARCHAR2(80));</p>
+<pre><code>INSERT INTO exp_goods_asia VALUES (&#39;한국&#39;, 1, &#39;원유제외 석유류&#39;);
+INSERT INTO exp_goods_asia VALUES (&#39;한국&#39;, 2, &#39;자동차&#39;);
+INSERT INTO exp_goods_asia VALUES (&#39;한국&#39;, 3, &#39;전자집적회로&#39;);
+INSERT INTO exp_goods_asia VALUES (&#39;한국&#39;, 4, &#39;선박&#39;);
+INSERT INTO exp_goods_asia VALUES (&#39;한국&#39;, 5,  &#39;LCD&#39;);
+INSERT INTO exp_goods_asia VALUES (&#39;한국&#39;, 6,  &#39;자동차부품&#39;);
+INSERT INTO exp_goods_asia VALUES (&#39;한국&#39;, 7,  &#39;휴대전화&#39;);
+INSERT INTO exp_goods_asia VALUES (&#39;한국&#39;, 8,  &#39;환식탄화수소&#39;);
+INSERT INTO exp_goods_asia VALUES (&#39;한국&#39;, 9,  &#39;무선송신기 디스플레이 부속품&#39;);
+INSERT INTO exp_goods_asia VALUES (&#39;한국&#39;, 10,  &#39;철 또는 비합금강&#39;);
+
+INSERT INTO exp_goods_asia VALUES (&#39;일본&#39;, 1, &#39;자동차&#39;);
+INSERT INTO exp_goods_asia VALUES (&#39;일본&#39;, 2, &#39;자동차부품&#39;);
+INSERT INTO exp_goods_asia VALUES (&#39;일본&#39;, 3, &#39;전자집적회로&#39;);
+INSERT INTO exp_goods_asia VALUES (&#39;일본&#39;, 4, &#39;선박&#39;);
+INSERT INTO exp_goods_asia VALUES (&#39;일본&#39;, 5, &#39;반도체웨이퍼&#39;);
+INSERT INTO exp_goods_asia VALUES (&#39;일본&#39;, 6, &#39;화물차&#39;);
+INSERT INTO exp_goods_asia VALUES (&#39;일본&#39;, 7, &#39;원유제외 석유류&#39;);
+INSERT INTO exp_goods_asia VALUES (&#39;일본&#39;, 8, &#39;건설기계&#39;);
+INSERT INTO exp_goods_asia VALUES (&#39;일본&#39;, 9, &#39;다이오드, 트랜지스터&#39;);
+INSERT INTO exp_goods_asia VALUES (&#39;일본&#39;, 10, &#39;기계류&#39;);
+</code></pre>
+<p>commit;</p>
+<p>select * from exp_goods_asia;</p>
+<p>select goods<br>from exp_goods_asia<br>where country &#x3D; ‘한국’<br>order by seq;</p>
+<p>select goods<br>from exp_goods_asia<br>where country &#x3D; ‘일본’<br>order by seq;</p>
+<p>–두 국가가 겹치는 수출품목은 한번만 조회가 됨</p>
+<p>–union사용</p>
+<p>select goods<br>from exp_goods_asia<br>where country &#x3D; ‘한국’<br>UNION<br>select goods<br>from exp_goods_asia<br>where country &#x3D; ‘일본’<br>;</p>
+<p>–union all 사용</p>
+<p>select goods<br>from exp_goods_asia<br>where country &#x3D; ‘한국’<br>UNION all – 중복된 것도 나오게 됨<br>select goods<br>from exp_goods_asia<br>where country &#x3D; ‘일본’<br>;</p>
+<p>–intersect(교집합)</p>
+<p>select goods<br>from exp_goods_asia<br>where country &#x3D; ‘한국’<br>intersect – 공통된 것만<br>select goods<br>from exp_goods_asia<br>where country &#x3D; ‘일본’<br>;</p>
+<p>–차집합</p>
+<p>select goods<br>from exp_goods_asia<br>where country &#x3D; ‘한국’<br>minus – 한국에는 있고 일본에는 없는 것만<br>select goods<br>from exp_goods_asia<br>where country &#x3D; ‘일본’<br>;</p>
+<p>–GROUPING SETS절<br>– Select rows from a Table</p>
+<p>SELECT<br> period, gubun, sum(loan_jan_amt)totl_jan<br>from kor_loan_status<br>where period like ‘2013%’<br>group by grouping sets(period,gubun);</p>
+<p>SELECT<br> period, gubun, sum(loan_jan_amt)totl_jan<br>from kor_loan_status<br>where period like ‘2013%’<br> and region in(‘서울’,’경기’)<br>group by grouping sets(period,(gubun,region));</p>
+<p>–조인의 종류p176<br>–동등 조인</p>
+<p>select a.employee_id<br>        ,a.emp_name<br>        ,a.department_id<br>        ,b.department_name<br>from employees a, departments b<br>where a.department_id &#x3D;b.department_id;</p>
+<p>–세미조인<br>–서브쿼리를 이용해 서브쿼리에 존재하는 데이터만 메인쿼리에서 추출<br>–EXISTS사용</p>
+<p>select department_id ,department_NAME<br>from departments a<br>where exists(select *<br>               from employees b<br>               where a.department_id &#x3D; b.department_id<br>               AND b.SALARY&gt;3000)<br>ORDER BY a.department_name;</p>
+<p>–in사용</p>
+<p>select department_id ,DEPARTMENT_NAME<br>from departments a<br>where a.department_id IN (select b.department_id<br>               from employees b<br>               where b.SALARY&gt;3000)<br>ORDER BY a.department_name;</p>
+<p>–안티조인<br>–세미조인의 반대개념</p>
+<p>–not exists, not in을 사용함<br>– Select rows from a Table</p>
+<p>SELECT<br> a.employee_id<br> ,a.emp_name<br> ,a.department_id<br> ,b.department_name<br>from employees A<br>   ,departments B<br>where a.department_id &#x3D; b.DEPARTMENT_ID<br> and a.department_id not in(select department_id<br>                            from DEPARTMENTS<br>                            where manager_id is null );  </p>
+<p>–180p</p>
+<p>select count(*)<br>from employees A<br>where not exists(select 1<br>                from departments c<br>                where a.department_id &#x3D; c.department_id<br>                and manager_id is null);</p>
+<p>– 셀프조인<br>– 조인을 하려면 두개의 테이블<br>– 테이블을  자기자신과 연결<br>– 같은 부서번호를 가진 사원중 A사원번호가 B사원보다 작은 건 조회</p>
+<p>select<br> a.employee_id<br> ,a.emp_name<br> ,b.employee_id<br> ,b.emp_name<br> ,a.department_id<br>from<br> employees A<br> ,employees B<br>where a.employee_id &lt; b.EMPLOYEE_Id<br> and a.department_id &#x3D; b.department_id<br> and a.department_id &#x3D; 20;</p>
+<p> –p181<br> –일반조인</p>
+<p>select<br> a.department_id<br> ,a.department_name<br> ,b.job_id<br> ,b.department_id<br>from departments a,<br>    job_history b<br>where a.department_id &#x3D; b.department_id ;</p>
+<p>– 라이트 조인<br>– 외부조인은 결측치가 생길 가능성이 높다.</p>
+<p>select<br> a.department_id<br> ,a.department_name<br> ,b.job_id<br> ,b.department_id<br>from departments a,<br>    job_history b<br>where a.department_id &#x3D; b.department_id(+) ;</p>
+<p>– 조건식 추가</p>
+<p>select<br> a.employee_id<br> ,a.emp_name<br> ,b.job_id<br> ,b.department_id<br>from employees a,<br>    job_history b<br>where a.employee_id &#x3D; b.employee_id(+)<br>     and a.department_id &#x3D; b.department_id;</p>
+<p>–ANSI조인 </p>
+<p>select<br> a.employee_id<br> ,a.emp_name<br> ,b.department_id<br> ,b.department_name<br>from employees a<br>INNER join departments B<br>         ON (a.department_id &#x3D; b.department_id)<br>    where a.HIRE_DATE&gt;&#x3D;TO_DATE(‘2003-01-01’,’YYYY-MM-DD’);</p>
+<p>–레프트 조인(왼쪽 테이블 데이터가 다 나옴)</p>
+<p>select<br> a.employee_id<br> ,a.emp_name<br> ,b.job_id<br> ,b.department_id<br>from employees a<br>LEFT OUTER JOIN job_history b<br>on(a.employee_id &#x3D; b.employee_id<br>     and a.department_id &#x3D; b.department_id);</p>
+<p>–라이트 조인(오른쪽 테이블 데이터가 다 나옴)</p>
+<p>select<br> a.employee_id<br> ,a.emp_name<br> ,b.job_id<br> ,b.department_id<br>from employees a<br>right OUTER JOIN job_history b<br>on(a.employee_id &#x3D; b.employee_id<br>     and a.department_id &#x3D; b.department_id);</p>
+<p>–서브쿼리<br>–select, from, where에서 사용된다.<br>–&gt;배치 자동화로 연결됨</p>
+<p>select avg(salary)from employees</p>
+<p>select count(*)<br>from EMPLOYEES<br>where salary&gt;&#x3D;(select avg(salary)from employees);     </p>
+<p>select count(*)<br>from EMPLOYEES<br>where salary&gt;&#x3D; –부등호가 나오면 서브쿼리에서 출력되는 값은 단일행이 된다.</p>
+<p>–in(10,20,30) 복수형이 나올 수 있다.</p>
+<p>select count(*)<br>from EMPLOYEES<br>where department_id in (select department_id<br>                        from EMPLOYEES<br>                        where parent_id is null);  </p>
+<p>select employee_id,<br>       EMP_NAME<br>       ,JOB_ID<br>from EMPLOYEES<br>where(employee_id,job_id)in(select EMPLOYEE_ID<br>                                ,JOB_ID<br>                             from job_history);       </p>
+<p>–서브쿼리는  updeate,delete문에서도 사용할 수 있다.</p>
+<p>–전사원의 급여를 평균 금액으로 갱신</p>
+<p>–메인쿼리와 서브쿼리를 분할해서 생각해야 한다.                       </p>
+</div><div class="article-licensing box"><div class="licensing-title"><p><a href="https://westar99.github.io/2022/07/21/day0721/">https://westar99.github.io/2022/07/21/day0721/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>John Doe</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2022-07-21</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2022-07-21</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="notification is-danger">You need to set <code>install_url</code> to use ShareThis. Please set it in <code>_config.yml</code>.</div></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">Like this article? Support the author with</h3><div class="buttons is-centered"><a class="button donate" href="/" target="_blank" rel="noopener" data-type="afdian"><span class="icon is-small"><i class="fas fa-charging-station"></i></span><span>Afdian.net</span></a><a class="button donate" data-type="alipay"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>Alipay</span><span class="qrcode"><img src="/" alt="Alipay"></span></a><a class="button donate" href="/" target="_blank" rel="noopener" data-type="buymeacoffee"><span class="icon is-small"><i class="fas fa-coffee"></i></span><span>Buy me a coffee</span></a><a class="button donate" href="/" target="_blank" rel="noopener" data-type="patreon"><span class="icon is-small"><i class="fab fa-patreon"></i></span><span>Patreon</span></a><div class="notification is-danger">You forgot to set the <code>business</code> or <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.</div><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>Wechat</span><span class="qrcode"><img src="/" alt="Wechat"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2022/07/21/day0720/"><span class="level-item"> </span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div class="notification is-danger">You forgot to set the <code>shortname</code> for Disqus. Please set it in <code>_config.yml</code>.</div></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="CHAI JE HYUNG"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">CHAI JE HYUNG</p><p class="is-size-6 is-block">GOD IS GOOD ALL THE TIME</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>SEOUL.KOREA</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">28</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/westar99" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/westar99"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://www.facebook.com/jehyung.chai"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-21T08:02:00.887Z">2022-07-21</time></p><p class="title"><a href="/2022/07/21/day0721/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-21T07:57:06.913Z">2022-07-21</time></p><p class="title"><a href="/2022/07/21/day0720/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-19T07:47:16.136Z">2022-07-19</time></p><p class="title"><a href="/2022/07/19/day0719/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-18T06:33:34.000Z">2022-07-18</time></p><p class="title"><a href="/2022/07/18/day0718/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-14T01:42:44.000Z">2022-07-14</time></p><p class="title"><a href="/2022/07/14/house-0713/"> </a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2022/07/"><span class="level-start"><span class="level-item">July 2022</span></span><span class="level-end"><span class="level-item tag">15</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/06/"><span class="level-start"><span class="level-item">June 2022</span></span><span class="level-end"><span class="level-item tag">13</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="CHAI JEHYUNG" height="28"></a><p class="is-size-7"><span>&copy; 2022 John Doe</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
